@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const geocode = require('./geocode.js');
 const weather = require('./weather.js');
 
+const port = process.env.PATH || 3000;
 
 var app = express();
 app.use(express.static(__dirname + '/views/images') );
@@ -54,6 +55,6 @@ app.get('/res', (req,res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server is up at port 3000')
 });
