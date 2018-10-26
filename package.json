@@ -1,0 +1,19 @@
+{
+  "name": "web-project",
+  "version": "1.0.0",
+  "description": "Weather App",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7",
+    "request": "^2.88.0",
+    "serve-favicon": "^2.5.0"
+  }
+}
