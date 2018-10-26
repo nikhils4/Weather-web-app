@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>WeatherIO</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee');
+        @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            margin: 0;
+
+            height : 100%;
+        }
+
+        body {
+            background-attachment: fixed;
+            margin : 0px;
+
+            height : 100%;
+            background: #000046;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(#1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient( #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+
+
+        #Header {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 30px;
+            color: rgba(250,250,250,0.8);
+            font-family: 'Krub', sans-serif;
+            cursor: pointer;
+
+        }
+
+        #box {
+            width:50%;
+            height:50%;
+            margin:0 auto;
+            border-radius: 99px;
+            text-align: center;
+        }
+
+        button {
+            background-color: transparent;
+            outline: none;
+            border: 0px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100%;
+            height:100%;
+        }
+
+        #address {
+            font-family: 'ABeeZee', sans-serif;
+            font-size: 25px;
+        }
+
+        #temp {
+            margin-bottom: 40px;
+            font-size: 85px;
+        }
+
+        #deg {
+            font-size: 30px;
+        }
+
+        #status {
+            font-size : 20px;
+        }
+
+        #error {
+            font-size: 25px;
+
+
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        var app=angular.module("app",[]);
+        app.controller("emp",['$scope',function($scope){
+            $scope.iconi='{{icon}}';
+            $scope.temp = '{{temp}}';
+
+        }]);
+    </script>
+</head>
+
+
+
+<body>
+<form action="/">
+    <button type="submit"><div id="Header"><h1><b>Weather.io</b></h1></div></button>
+</form>
+
+<div ng-app="app">
+    <div ng-controller="emp">
+
+<div id="box">
+    <div id="table" >
+        <p id="address">{{street}}{{area5}}{{area4}}{{state}}{{country}}</p>
+
+        <p id="temp">{{temp}}<span><sup ng-if='temp!=""' id="deg">&#8457;</sup></span></p>
+        <p id="status">{{summary}}</p>
+
+    </div>
+
+
+            <img src="clear-day.svg" style="width:150px;height:150px" ng-if="iconi=='clear-day'">
+            <img src="clear-night.svg" style="width:150px;height:150px" ng-if="iconi=='clear-night'">
+            <img src="cloudy.svg" style="width:150px;height:150px" ng-if="iconi=='cloudy'">
+            <img src="fog.svg" style="width:150px;height:150px" ng-if="iconi=='fog'">
+            <img src="hail.svg" style="width:150px;height:150px" ng-if="iconi=='hail'">
+            <img src="partly-cloudy-day.svg" style="width:150px;height:150px" ng-if="iconi=='partly-cloudy-day'">
+            <img src="partly-cloudy-night.svg" style="width:150px;height:150px" ng-if="iconi=='partly-cloudy-night'">
+            <img src="rain.svg" style="width:150px;height:150px" ng-if="iconi=='rain'">
+            <img src="sleet.svg" style="width:150px;height:150px" ng-if="iconi==='sleet'">
+            <img src="snow.svg" style="width:150px;height:150px" ng-if="iconi==='snow'">
+            <img src="thunderstorm.svg" style="width:150px;height:150px" ng-if="iconi==='thunderstorm'">
+            <img src="tornado.svg" style="width:150px;height:150px" ng-if="iconi==='tornado'">
+            <img src="wind.svg" style="width:150px;height:150px" ng-if="iconi==='wind'">
+            <p id="error">{{error}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 180px; margin-bottom: 30px; color: white; text-decoration: none;">
+    <h3>&lt;/&gt; with &#10084;</h3>
+
+    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
+    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
+    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
+</div>
+
+
+
+
+</body>
+</html>
