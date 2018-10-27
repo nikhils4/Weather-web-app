@@ -3,6 +3,7 @@ const hbs = require('hbs');
 
 const geocode = require('./geocode.js');
 const weather = require('./weather.js');
+const reverse = require('./reverse.js')
 
 const port = process.env.PORT || 3000;
 
@@ -16,7 +17,6 @@ app.get('/', (req,res) => {
 });
 
 app.get('/res', (req,res) => {
-
     geocode.geocodeAddress(req.query.location, (errorMessage, results) => {
         if (errorMessage) {
             res.render('result.hbs', {
@@ -56,36 +56,52 @@ app.get('/res', (req,res) => {
     });
 });
 
+
 app.get('/locate', (req,res) => {
-        // weather.getWeather(results.latitute, results.longitude, (errorMessage, weatherResults) => {
-           res.send(req);
+    reverse.reverse(req.query.name_lat, req.query.name_lng, (errorMessage, nameresults) => {
+        if(errorMessage) {
+            res.render('result.hbs', {
+                error : errorMessage
+            })
+        }
+        else {
+            geocode.geocodeAddress(nameresults.address, (errorMessage, results) => {
+                if (errorMessage) {
+                    res.render('result.hbs', {
+                        error : errorMessage
+                    })
 
-
-            // if (errorMessage) {
-            //     res.render('result.hbs', {
-            //         error: errorMessage
-            //     })
-            // }
-            // else {
-            //     res.render('result.hbs', {
-            //         street : results.street + ' ',
-            //         area5 : results.area5 + ' ',
-            //         area4 : results.area4 + ' ',
-            //         state : results.state + ' ' ,
-            //         country : results.country,
-            //         tempF : Math.round(weatherResults.temperature),
-            //         tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
-            //         icon : weatherResults.icon,
-            //         body : JSON.stringify(results.body, undefined, 2),
-            //         summary : weatherResults.summary
-            //     });
-            // }
-        // });
+                }
+                else {
+                    weather.getWeather(results.latitute, results.longitude, (errorMessage, weatherResults) => {
+                        if (errorMessage) {
+                            res.render('result.hbs', {
+                                error: errorMessage
+                            })
+                        }
+                        else {
+                            res.render('result.hbs', {
+                                street : results.street + ' ',
+                                area5 : results.area5 + ' ',
+                                area4 : results.area4 + ' ',
+                                state : results.state + ' ' ,
+                                country : results.country,
+                                tempF : Math.round(weatherResults.temperature),
+                                tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                icon : weatherResults.icon,
+                                body : JSON.stringify(results.body, undefined, 2),
+                                summary : weatherResults.summary
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
 
 });
-
-
 
 app.listen(port, () => {
     console.log('Server is up at port ' + port);
 });
+

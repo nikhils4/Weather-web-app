@@ -88,6 +88,7 @@
             text-align: center;
             opacity: 1;
             cursor: pointer;
+
         }
 
 
@@ -105,16 +106,15 @@
             margin-right: 5%;
             border-radius: 30px;
             font-size: 14px;
-            text-transform: uppercase;
+            /*text-transform: uppercase;*/
             letter-spacing: 0.3px;
-            margin-left: 100px;
             margin-top: 20px;
         }
 
         .namer-controls div span.active {
             box-shadow: none;
             background-color: #1976D2;
-        color: #fff;
+            color: #fff;
 
         }
 
@@ -182,6 +182,31 @@
         }]);
 
 
+        function secondClick() {
+            setTimeout(function(){
+                document.getElementById("secondClick").click(); }, 0);
+
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x = position.coords.latitude;
+            y = position.coords.longitude;
+            var a = document.getElementById("input_lat");
+            a.value = x;
+            var b = document.getElementById("input_lng");
+            b.value = y;
+            secondClick();
+        }
+
+
 
 
     </script>
@@ -198,17 +223,32 @@
 
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
-                    <form action='/res'>
-                        <div id="namer-input">
-                            <input type="text" name="location" placeholder="Location">
-                        </div>
 
-                        <div class="namer-controls">
+
+
+                    <div class="namer-controls">
+                        <form action='/res'>
+  <span id="namer-input">
+                        <input type="text" name="location" placeholder="Tap GO or Search here">
+                    </span>
+
                             <div>
                                 <span><button type="submit" id="one">Search</button></span>
                             </div>
+
+                        </form>
+
+                        <div>
+                            <span><button onclick="getLocation()" id="two">Go</button></span>
                         </div>
-                    </form>
+
+
+
+
+                    </div>
+
+                    <!--<p>Tap GO to get the weather of current location</p>-->
+
                 </div>
 
             </div>
@@ -220,14 +260,20 @@
 
 <br><br><br><br>
 
-<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 160px; color: white; text-decoration: none;">
-<h3>&lt;/&gt; with &#10084;</h3>
+<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;">
+    <h3>&lt;/&gt; with &#10084;</h3>
 
-<a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
-<a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
-<a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
+    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
+    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
+    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
+
+<form action='/locate' style="display:none;">
+    <input type="text" name='name_lat' id="input_lat">
+    <input type="text" name='name_lng' id="input_lng">
+    <button type="submit" id="secondClick"></button>
+
+</form>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
-</html>
