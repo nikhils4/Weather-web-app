@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="jquery-3.3.1.min.js"></script>
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <style>
@@ -216,7 +217,7 @@
     </div>
 </div>
 
-
+<span><button id="location" type="submit" id="one">Go</button></span>
 
 <br><br><br><br>
 
@@ -227,6 +228,27 @@
 <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
 <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
+
+<script>
+    var findMeButton = $('#location');
+        findMeButton.on('click', function(e) {
+
+            e.preventDefault();
+
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                // Get the coordinates of the current possition.
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+
+
+            });
+        })
+
+
+
+</script>
+
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
