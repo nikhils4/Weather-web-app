@@ -69,9 +69,11 @@
             font-size: 25px;
         }
 
-        #temp {
+        .temp {
+            margin-top: 30px;
             margin-bottom: 40px;
             font-size: 85px;
+            cursor: pointer;
         }
 
         #deg {
@@ -95,7 +97,19 @@
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
             $scope.iconi='{{icon}}';
-            $scope.temp = '{{temp}}';
+            $scope.tempF = '{{tempF}}';
+            $scope.tempC = '{{tempC}}';
+            $scope.count = 1;
+            $scope.bool = 'true';
+            $scope.display = function () {
+                $scope.count++;
+                if($scope.count%2==0){
+                    $scope.bool='false';
+                }
+                else {
+                    $scope.bool = 'true';
+                }
+            }
 
         }]);
     </script>
@@ -105,7 +119,7 @@
 
 <body>
 <form action="/">
-    <button type="submit"><div id="Header"><h1><b>Weather.io</b></h1></div></button>
+    <button type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
 </form>
 
 <div ng-app="app">
@@ -114,8 +128,9 @@
 <div id="box">
     <div id="table" >
         <p id="address">{{street}}{{area5}}{{area4}}{{state}}{{country}}</p>
-
-        <p id="temp">{{temp}}<span><sup ng-if='temp!=""' id="deg">&#8457;</sup></span></p>
+        <img src="https://www.countryflags.io/{{country}}/shiny/48.png">
+        <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
+        <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
         <p id="status">{{summary}}</p>
 
     </div>

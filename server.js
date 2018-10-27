@@ -44,7 +44,8 @@ app.get('/res', (req,res) => {
                         area4 : results.area4 + ' ',
                         state : results.state + ' ' ,
                         country : results.country,
-                        temp : Math.round(weatherResults.temperature),
+                        tempF : Math.round(weatherResults.temperature),
+                        tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
                         icon : weatherResults.icon,
                         body : JSON.stringify(results.body, undefined, 2),
                         summary : weatherResults.summary
