@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="jquery-3.3.1.min.js"></script>
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <style>
@@ -217,10 +216,6 @@
     </div>
 </div>
 
-<!--<form action="/locate">-->
-<span><button id="go" name="location" onclick="getLocation()" type="submit" >Go</button></span>
-<!--</form>-->
-
 
 <p id="demo" ></p>
 <br><br><br><br>
@@ -232,27 +227,7 @@
 <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
 <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
-
-
-<script>
-    var x = document.getElementById("demo");
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
-    }
-</script>
-
-
-
-
-
+2
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
 </html>
