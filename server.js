@@ -56,6 +56,36 @@ app.get('/res', (req,res) => {
     });
 });
 
+app.get('/locate', (req,res) => {
+        // weather.getWeather(results.latitute, results.longitude, (errorMessage, weatherResults) => {
+           res.send(req);
+
+
+            // if (errorMessage) {
+            //     res.render('result.hbs', {
+            //         error: errorMessage
+            //     })
+            // }
+            // else {
+            //     res.render('result.hbs', {
+            //         street : results.street + ' ',
+            //         area5 : results.area5 + ' ',
+            //         area4 : results.area4 + ' ',
+            //         state : results.state + ' ' ,
+            //         country : results.country,
+            //         tempF : Math.round(weatherResults.temperature),
+            //         tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
+            //         icon : weatherResults.icon,
+            //         body : JSON.stringify(results.body, undefined, 2),
+            //         summary : weatherResults.summary
+            //     });
+            // }
+        // });
+
+});
+
+
+
 app.listen(port, () => {
     console.log('Server is up at port ' + port);
 });

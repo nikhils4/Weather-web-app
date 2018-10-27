@@ -217,8 +217,12 @@
     </div>
 </div>
 
-<span><button id="location" type="submit" id="one">Go</button></span>
+<!--<form action="/locate">-->
+<span><button id="go" name="location" onclick="getLocation()" type="submit" >Go</button></span>
+<!--</form>-->
 
+
+<p id="demo" ></p>
 <br><br><br><br>
 
 <div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 160px; color: white; text-decoration: none;">
@@ -229,25 +233,24 @@
 <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
 
+
 <script>
-    var findMeButton = $('#location');
-        findMeButton.on('click', function(e) {
-
-            e.preventDefault();
-
-            navigator.geolocation.getCurrentPosition(function (position) {
-
-                // Get the coordinates of the current possition.
-                var lat = position.coords.latitude;
-                var lng = position.coords.longitude;
-
-
-            });
-        })
-
-
-
+    var x = document.getElementById("demo");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+    }
 </script>
+
+
+
 
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
