@@ -52,7 +52,7 @@ app.get('/res', (req,res) => {
                         icon : weatherResults.icon,
                         body : JSON.stringify(results.body, undefined, 2),
                         summary : weatherResults.summary
-                    });3
+                    });
                 }
             });
         }
