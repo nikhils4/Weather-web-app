@@ -88,8 +88,8 @@
         #error {
             font-size: 25px;
 
-
         }
+
 
     </style>
 
@@ -127,15 +127,15 @@
 <div ng-app="app">
     <div ng-controller="emp">
 
-<div id="box">
-    <div id="table" >
-        <p id="address">{{street}}{{area5}}{{area4}}{{state}}{{country}}</p>
-        <span ng-if="error==''"   id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
-        <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
-        <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
-        <p id="status">{{summary}}</p>
+        <div id="box">
+            <div id="table" >
+                <p id="address">{{street}}{{area5}}{{area4}}{{state}}{{country}}</p>
+                <span ng-if="error==''"   id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
+                <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
+                <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
+                <p id="status">{{summary}}</p>
 
-    </div>
+            </div>
 
 
             <img src="clear-day.svg" style="width:150px;height:150px" ng-if="iconi=='clear-day'">
@@ -164,7 +164,6 @@
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
-
 
 
 
