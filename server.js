@@ -3,7 +3,7 @@ const hbs = require('hbs');
 
 const geocode = require('./geocode.js');
 const weather = require('./weather.js');
-const reverse = require('./reverse.js')
+const reverse = require('./reverse.js');
 
 const port = process.env.PORT || 3000;
 
