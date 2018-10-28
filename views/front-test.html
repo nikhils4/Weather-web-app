@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+          <link rel="stylesheet" href="images/animate.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -219,7 +221,7 @@
 <div ng-app="app">
     <div ng-controller="emp">
 
-        <div id="Header"><h1><b>Weather.IO</b></h1></div>
+        <div id="Header" class="animated bounce"><h1><b>Weather.IO</b></h1></div>
         <div id="box">
 
 
@@ -234,13 +236,13 @@
                         <input type="text" name="location" placeholder="Tap GO or Search here">
                     </span>
 
-                            <div>
+                            <div class="animated bounceInLeft">
                                 <span><button type="submit" id="one">Search</button></span>
                             </div>
 
                         </form>
 
-                        <div>
+                        <div class="animated bounceInRight">
                             <span><button onclick="getLocation()" id="two">Go</button></span>
                         </div>
 
