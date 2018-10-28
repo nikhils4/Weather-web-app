@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
-          <link rel="stylesheet" href="images/animate.css">
+    <link rel="stylesheet" href="animate.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
@@ -118,9 +118,7 @@
             margin-right: 0;
         }
 
-        h1 {
-            margin: 0px;
-        }
+
 
         #box {
             width:50%;
@@ -136,8 +134,7 @@
             font-size: 30px;
             color: rgba(250,250,250,1);
             cursor: pointer;
-            background-color: #5D6FB1;
-            padding: 30px;
+            /*background-color: red;*/
         }
 
         button {
@@ -167,9 +164,8 @@
         #two {
             margin-left: 80px;
         }
-
-        #smallHead {
-            text-align: center;
+        #this {
+            margin-left: 80px;
         }
 
     </style>
@@ -210,15 +206,12 @@
         function change() {
             var a = document.getElementById('namer-input');
             a.classList.remove('hide');
-            var b = document.getElementById('first');
-            b.classList.remove('hide');
+            var b = document.getElementById('one');
+            b.classList.add('hide');
             var c = document.getElementById('two');
             c.classList.add('hide');
-        }
-
-        function submit() {
-            var a = document.getElementById("sub");
-            a.click();
+            var d = document.getElementById('this');
+            d.classList.remove('hide');
         }
 
 
@@ -230,40 +223,39 @@
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
-        <div class="animated jello "><h1><b>Weather.IO</b></h1></div>
+            <div class="animated jello "><h1><b>Weather.IO</b></h1></div>
         </div>
-        <div id="smallHead">World Weather Reports</div>
         <div id="box">
 
 
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
 
+
+
                     <div class="namer-controls">
                         <form action='/res'>
                     <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Tap GO or Search here">
                     </span>
-                        <span class="animated fadeInLeft">
-                            <div class="hide">
-                                <span id="one" ><button type="submit">Search</button></span>
+
+                            <div id="this" class="animated fadeInLeft hide">
+                                <span ><button type="submit">Search</button></span>
                             </div>
-                        </span>
 
                         </form>
 
+                        <div class="animated fadeInLeft" id="one">
+                            <span><button id="first" onclick="change()">Search</button></span>
+                        </div>
 
                         <div class="animated fadeInRight" id="two">
                             <span><button onclick="getLocation()">Go</button></span>
                         </div>
 
-                        <div class="animated fadeInLeft" id="one">
-                                <span><button id="first" onclick="change()">Search</button></span>
-                            </div>
-
                     </div>
 
-                        <p style="font-family: 'ABeeZee', sans-serif; font-size: 18px; margin-top: 150px;">Tap GO to get the weather of current location</p>
+                    <p style="font-family: 'ABeeZee', sans-serif; font-size: 18px; margin-top: 150px;">Tap GO to get the weather of current location</p>
 
 
                 </div>
