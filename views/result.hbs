@@ -82,7 +82,7 @@
         }
 
         #status {
-            font-size : 20px;
+            font-size : 25px;
         }
 
         #error {
@@ -90,7 +90,10 @@
 
 
         }
-
+        
+        #predict {
+            font-size: 20px;
+        }
     </style>
 
     <script type="text/javascript">
@@ -100,6 +103,7 @@
             $scope.iconi='{{icon}}';
             $scope.tempF = '{{tempF}}';
             $scope.tempC = '{{tempC}}';
+            $scope.predict = "{{predict}}";
             $scope.count = 1;
             $scope.bool = 'true';
             $scope.display = function () {
@@ -134,6 +138,7 @@
         <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
         <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
         <p id="status">{{summary}}</p>
+        <p id="predict">{{predict}}</p>
 
     </div>
 
