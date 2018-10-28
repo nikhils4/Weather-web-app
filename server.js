@@ -46,12 +46,13 @@ app.get('/res', (req,res) => {
                         area4 : results.area4 + ' ',
                         state : results.state + ' ' ,
                         country : results.country,
+                        predict : weatherResults.prediction,
                         tempF : Math.round(weatherResults.temperature),
                         tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
                         icon : weatherResults.icon,
                         body : JSON.stringify(results.body, undefined, 2),
                         summary : weatherResults.summary
-                    });
+                    });3
                 }
             });
         }
@@ -88,6 +89,7 @@ app.get('/locate', (req,res) => {
                                 area4 : results.area4 + ' ',
                                 state : results.state + ' ' ,
                                 country : results.country,
+                                predict : weatherResults.prediction,
                                 tempF : Math.round(weatherResults.temperature),
                                 tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
                                 icon : weatherResults.icon,
