@@ -22,7 +22,7 @@
         }
 
         html {
-            margin : 0;
+            margin : 0px;
             height : 100%;
         }
 
@@ -101,7 +101,7 @@
 
         .namer-controls div span {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            padding: 10px 5px;
+            padding: 20px 10px;
             width: 95%;
             display: inline-block;
             margin-right: 5%;
@@ -110,12 +110,6 @@
             /*text-transform: uppercase;*/
             letter-spacing: 0.3px;
             margin-top: 20px;
-        }
-
-        .namer-controls div span.active {
-            box-shadow: none;
-            background-color: #1976D2;
-            color: #fff;
 
         }
 
@@ -135,12 +129,12 @@
 
         #Header {
             font-family: 'Comfortaa', cursive;
-            margin-top: 50px;
+            margin-top: 0px;
             text-align: center;
             font-size: 30px;
             color: rgba(250,250,250,1);
             cursor: pointer;
-
+            /*background-color: red;*/
         }
 
         button {
@@ -155,29 +149,28 @@
             height:100%;
         }
 
+        .animated {
+            animation-duration: 2s;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #one {
+            margin-left: 80px;
+        }
+
+        #two {
+            margin-left: 80px;
+        }
+        #this {
+            margin-left: 80px;
+        }
+
     </style>
 
-    <script>
-
-        $(document).ready(function(){
-            $("#one").click(function(){
-                $("#main").hide();
-                $("#table").show();
-            });
-
-            $('#Header').click(function(){
-                $("#main").show();
-                $("#table").hide();
-            })
-
-        });
-
-    </script>
-
     <script type="text/javascript">
-
-
-
 
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
@@ -210,7 +203,17 @@
             secondClick();
         }
 
+        function change() {
+            var a = document.getElementById('namer-input');
+            a.classList.remove('hide');
+            var b = document.getElementById('one');
+            b.classList.add('hide');
+            var c = document.getElementById('two');
+            c.classList.add('hide');
 
+            var d = document.getElementById('this');
+            d.classList.remove('hide');
+        }
 
 
     </script>
@@ -220,8 +223,9 @@
 
 <div ng-app="app">
     <div ng-controller="emp">
-
-        <div id="Header" class="animated bounce"><h1><b>Weather.IO</b></h1></div>
+        <div id="Header">
+            <div class="animated jello "><h1><b>Weather.IO</b></h1></div>
+        </div>
         <div id="box">
 
 
@@ -232,25 +236,27 @@
 
                     <div class="namer-controls">
                         <form action='/res'>
-  <span id="namer-input">
+                    <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Tap GO or Search here">
                     </span>
 
-                            <div class="animated bounceInLeft">
-                                <span><button type="submit" id="one">Search</button></span>
+                            <div id="this" class="animated fadeInLeft hide">
+                                <span ><button type="submit">Search</button></span>
                             </div>
 
                         </form>
 
-                        <div class="animated bounceInRight">
-                            <span><button onclick="getLocation()" id="two">Go</button></span>
+                        <div class="animated fadeInLeft" id="one">
+                            <span><button id="first" onclick="change()">Search</button></span>
                         </div>
 
+                        <div class="animated fadeInRight" id="two">
+                            <span><button onclick="getLocation()">Go</button></span>
+                        </div>
 
-
-                        <p style="font-family: 'ABeeZee', sans-serif; font-size: 18px; margin-top: 150px;">Tap GO to get the weather of current location</p>
                     </div>
 
+                    <p style="font-family: 'ABeeZee', sans-serif; font-size: 18px; margin-top: 150px;">Tap GO to get the weather of current location</p>
 
 
                 </div>
@@ -260,9 +266,6 @@
     </div>
 </div>
 
-
-
-<br><br><br><br>
 
 <div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;">
     <h3>&lt;/&gt; with &#10084;</h3>
@@ -281,5 +284,4 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
-
-
+</html>
