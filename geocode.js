@@ -7,7 +7,7 @@ var geocodeAddress = (address, callback) => {
     }, (error, response, body) => {
         if (error != null) // mistake from user end
         {
-            callback("Unable to connect to Mapquest servers try again later !");
+            callback("Please check your Internet connection and try again later !");
         }
         else if (body.info.statuscode == 400) {  // mistake from server end
             callback("Hey, no such place exist try entering some other place !");
