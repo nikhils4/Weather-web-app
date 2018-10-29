@@ -5,6 +5,8 @@
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -194,10 +196,16 @@
                     <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Search here">
                     </span>
-                            <button class="hide" id="this" type="submit">Search</button>
+
+                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
+
                         </form>
-                        <button   id="one" onclick="change()">Search</button>
-                        <button  id="two" onclick="getLocation()">Go</button>
+
+
+                        <button id="one" onclick="change()"> <img src="search.svg" width="26px" height="26px"> </button>
+
+                        <button id="two" onclick="getLocation()"> Go <img src="location1.svg" width="26px" height="26px"></button>
+
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
                 </div>
