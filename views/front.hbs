@@ -43,7 +43,7 @@
         #namer input {
             border: 0px;
             border-bottom: 2px solid #1BB1DC;
-            width: 50%;
+            width: 55%;
             /*float: right;*/
             font-size: 30px;
             line-height: 35px;
@@ -105,7 +105,7 @@
         #box {
             width:50%;
             height:50%;
-            margin:0 auto;
+            margin: 0 auto;
             border-radius: 100px;
         }
         #Header {
@@ -115,7 +115,7 @@
             font-size: 30px;
             color: rgba(250,250,250,1);
             cursor: pointer;
-        /*background-color: red;*/
+            /*background-color: red;*/
         }
         #one {
             /*margin-left: 80px;*/
@@ -123,10 +123,10 @@
             display: inline-block;
 
         }
-        #two{
+        #two {
             /*margin-left: 80px;*/
-        display: inline-block;
-        float: right;
+            display: inline-block;
+            float: right;
         }
         .hide {
             display: none;
@@ -164,6 +164,8 @@
             /*height:100%;*/
         }
     </style>
+
+
     <script type="text/javascript">
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
@@ -191,23 +193,73 @@
             b.value = y;
             secondClick();
         }
+
+
+
         $(document).ready(function(){
             $("body").fadeIn("slow");
             $("#one").fadeIn("slow");
             $("#two").fadeIn("slow");
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
+
             $("#one").click(function(){
+
                 $("#one").animate({
                     opacity: 0,
-                    marginLeft: '120px'
+                    marginLeft: '200px'
                 },'slow','linear',function() {
-                    $(this).remove();
-                })
-                $("#two").fadeOut("slow");
+                    $(this).hide();
+                });
+
+                $("#two").hide();
+
+                $("#last").animate({
+                            marginLeft: '100px',
+                            marginRight : '40px'
+                        },'slow','linear'
+                );
+
+
+
+                $("#start").animate({
+                            marginRight: '920px',
+                            marginLeft: '20px'
+                        },'slow','linear'
+                );
+
+
                 $("#this").delay("slow").fadeIn();
                 $("#namer-input").delay("slow").fadeIn();
+                $("#back").delay("slow").fadeIn();
             });
+
+            $("#back").click(function(){
+                $("#back").fadeOut();
+                $("#this").fadeOut();
+                $("#namer-input").fadeOut();
+
+                $("#start").animate({
+                            opacity:1,
+                            marginLeft: '520px',
+                            marginRight: '620px'
+                        },'slow','linear'
+                );
+                $("#one").animate({
+                    opacity: 1,
+                    marginLeft: '0px'
+                },'slow','linear',function() {
+                    $(this).fadeIn();
+                });
+                $("#two").delay("slow").fadeIn();
+
+                $("#last").animate({
+                            marginRight: '100px'
+                        },'slow','linear'
+                );
+
+            })
+
         });
     </script>
 </head>
@@ -221,16 +273,17 @@
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
                     <div class="namer-controls">
+
                         <form id="form" action='/res'>
                     <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <button class="hide" id="this"  type="submit"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button id="back" style="padding: 0px; " type="button"><img width="48px" height="48px" src="back.svg" ></button>
+                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="back.svg"></span></button>
+
 
                         </form>
-
 
                         <button id="one" onclick="change()"> <img src="search.svg" width="32px" height="32px"> </button>
 
