@@ -40,7 +40,7 @@
 
         #namer {
             position: relative;
-            max-width: 400px;
+            width: 400px;
             margin: 149px auto 0;
         }
 
@@ -100,17 +100,16 @@
 
         .namer-controls div span {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            padding: 30px;
-            width: 65%;
-            height:65%;
+            padding: 20px 10px;
+            width: 95%;
             display: inline-block;
             margin-right: 5%;
-            border-radius: 80px;
-            font-size: 16px;
+            border-radius: 30px;
+            font-size: 14px;
             /*text-transform: uppercase;*/
             letter-spacing: 0.3px;
             margin-top: 20px;
-            float: left;
+
         }
 
 
@@ -158,13 +157,16 @@
         }
 
         #one {
-            margin-left: 80px;
-            
+            /*margin-left: 80px;*/
+            float: left;
+            display: inline-block !important;
 
         }
 
         #two {
-            margin-left: 80px;
+            /*margin-left: 80px;*/
+            display: inline-block !important;
+            float: right;
         }
         #this {
             margin-left: 80px;
@@ -234,6 +236,7 @@
                 <div ng-if="a=='change'" id="main">
 
 
+
                     <div class="namer-controls">
                         <form action='/res'>
                     <span id="namer-input" class="hide">
@@ -247,7 +250,7 @@
                         </form>
 
                         <div class="animated fadeInLeft" id="one">
-                            <span><button id="first" onclick="change()">Search</button></span>
+                            <span><button onclick="change()">Search</button></span>
                         </div>
 
                         <div class="animated fadeInRight" id="two">
@@ -257,6 +260,7 @@
                     </div>
 
                     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p>
+
 
                 </div>
 

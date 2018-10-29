@@ -40,7 +40,7 @@
 
         #namer {
             position: relative;
-            max-width: 400px;
+            width: 400px;
             margin: 149px auto 0;
         }
 
@@ -157,14 +157,16 @@
         }
 
         #one {
-            margin-left: 80px;
-            /*display: inline-block !important;*/
+            /*margin-left: 80px;*/
+            float: left;
+            display: inline-block !important;
 
         }
 
         #two {
-            margin-left: 80px;
-            /*display: inline-block !important;*/
+            /*margin-left: 80px;*/
+            display: inline-block !important;
+            float: right;
         }
         #this {
             margin-left: 80px;
@@ -248,7 +250,7 @@
                         </form>
 
                         <div class="animated fadeInLeft" id="one">
-                            <span><button id="first" onclick="change()">Search</button></span>
+                            <span><button onclick="change()">Search</button></span>
                         </div>
 
                         <div class="animated fadeInRight" id="two">
