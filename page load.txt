@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -33,7 +34,6 @@
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
-            display: none;
         }
         #namer {
             position: relative;
@@ -44,6 +44,7 @@
             border: 0px;
             border-bottom: 2px solid #1BB1DC;
             width: 55%;
+            /*float: right;*/
             font-size: 30px;
             line-height: 35px;
             height: 70px;
@@ -87,22 +88,16 @@
         }
         button {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            padding: 20px 10px;
-            width:150px;
+            padding: 15px 40px;
+            width:170px;
             display: inline-block;
             border-radius: 30px;
-            font-size: 20px;
-            /*text-transform: uppercase;*/
-            letter-spacing: 0.3px;
-            margin-top: 9px;
+            margin-top: 7px;
             background-color: transparent;
             outline: none;
             border: 0px;
             color: #fff;
-            /*font-size: 20px;*/
             cursor: pointer;
-            /*width: 100%;*/
-            /*height:100%;*/
         }
         .namer-controls div span:last-child {
             margin-right: 0;
@@ -136,16 +131,39 @@
         }
         .hide {
             display: none;
-            
         }
         #form {
+            margin-right: 400px;
             text-align: center;
-            width : 500px;
+            width : 600px;
+            /*padding-left: 100px;*/
         }
         #this {
             float: right;
         }
-
+        #back {
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            /*margin-top: 7px;*/
+            /*height: ;*/
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            /*font-size: 20px;*/
+            /*text-transform: uppercase;*/
+            /*letter-spacing: 0.3px;*/
+            margin-top: 18px;
+            background-color: transparent;
+            outline: none;
+            border: 0px;
+            color: #fff;
+            /*font-size: 20px;*/
+            cursor: pointer;
+            float: left;
+            /*padding: 20px 50px;*/
+            /*width: 100%;*/
+            /*height:100%;*/
+        }
     </style>
     <script type="text/javascript">
         var app=angular.module("app",[]);
@@ -180,7 +198,6 @@
             $("#two").fadeIn("slow");
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
-            
             $("#one").click(function(){
                 $("#one").animate({
                     opacity: 0,
@@ -193,8 +210,6 @@
                 $("#namer-input").delay("slow").fadeIn();
             });
         });
-
-
     </script>
 </head>
 <body>
@@ -212,14 +227,14 @@
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <button class="hide" id="this" type="submit"> <img src="images/search.svg" width="40px" height="40px"></button>
+                            <button class="hide" id="this"  type="submit"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button id="back" style="padding: 0px; "><img width="48px" height="48px" src="back.svg" ></button>
 
                         </form>
 
-                        <button style="display:none;" id="one" onclick="change()"> <img src="images/search.svg" width="40px" height="40px"> </button>
+                        <button id="one" onclick="change()"> <img src="search.svg" width="32px" height="32px"> </button>
 
-                        <button style="display:none;" id="two" onclick="getLocation()"> <img src="images/location1.svg" width="40px" height="40px">
-                        </button>
+                        <button id="two" onclick="getLocation()"><img src="location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
@@ -229,6 +244,7 @@
     </div>
 </div>
 <div id="last" style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;display: none;">
+
     <h3>&lt;/&gt; with &#10084;</h3>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
