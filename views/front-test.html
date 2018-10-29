@@ -100,17 +100,25 @@
 
         }
 
-        .namer-controls div span {
+        button {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
             padding: 20px 10px;
-            width: 95%;
+            width:175px;
             display: inline-block;
             margin-right: 5%;
             border-radius: 30px;
-            font-size: 14px;
+            font-size: 20px;
             /*text-transform: uppercase;*/
             letter-spacing: 0.3px;
             margin-top: 20px;
+            background-color: transparent;
+            outline: none;
+            border: 0px;
+            color: #fff;
+            /*font-size: 20px;*/
+            cursor: pointer;
+            /*width: 100%;*/
+            /*height:100%;*/
 
         }
 
@@ -138,17 +146,17 @@
             /*background-color: red;*/
         }
 
-        button {
+        /*button {*/
 
-            background-color: transparent;
-            outline: none;
-            border: 0px;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-            width: 100%;
-            height:100%;
-        }
+        /*background-color: transparent;*/
+        /*outline: none;*/
+        /*border: 0px;*/
+        /*color: #fff;*/
+        /*font-size: 20px;*/
+        /*cursor: pointer;*/
+        /*width: 100%;*/
+        /*height:100%;*/
+        /*}*/
 
 
 
@@ -164,17 +172,15 @@
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
-       }
-        #this {
-            margin-left: 80px;
         }
         
         .hide {
             display: none;
         }
 
-    </style>
 
+
+    </style>
     <script type="text/javascript">
 
         var app=angular.module("app",[]);
@@ -211,12 +217,14 @@
         function change() {
             var a = document.getElementById('namer-input');
             a.classList.remove('hide');
-            var b = document.getElementById('one');
-            b.classList.add('hide');
-            var c = document.getElementById('two');
-            c.classList.add('hide');
+
             var d = document.getElementById('this');
             d.classList.remove('hide');
+
+            var b = document.getElementById("one");
+            b.classList.add('hide');
+            var c = document.getElementById("two");
+            c.classList.add('hide');
         }
 
         $(document).ready(function(){
@@ -238,6 +246,8 @@
 
 
     </script>
+
+
 </head>
 
 <body>
@@ -259,19 +269,17 @@
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <div id="this" class="hide">
-                                <span><button type="submit">Search</button></span>
-                            </div>
+                            <button class="hide" id="this" type="submit">Search route</button>
+
 
                         </form>
 
-                        <div id="one">
-                            <span><button onclick="change()">Search</button></span>
-                        </div>
 
-                        <div id="two">
-                            <span><button onclick="getLocation()">Go</button></span>
-                        </div>
+                        <button id="one" onclick="change()">Search main</button>
+
+                        <button id="two" onclick="getLocation()">Go</button>
+
+
                     </div>
 
                <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
@@ -298,6 +306,6 @@
     <button type="submit" id="secondClick"></button>
 
 </form>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
 </html>
