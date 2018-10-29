@@ -193,8 +193,18 @@
             secondClick();
         }
         $(document).ready(function(){
+            $("body").fadeIn("slow");
+            $("#one").fadeIn("slow");
+            $("#two").fadeIn("slow");
+            $("#start").fadeIn("slow");
+            $("#last").fadeIn("slow");
             $("#one").click(function(){
-                $("#one").fadeOut("slow");
+                $("#one").animate({
+                    opacity: 0,
+                    marginLeft: '120px'
+                },'slow','linear',function() {
+                    $(this).remove();
+                })
                 $("#two").fadeOut("slow");
                 $("#this").delay("slow").fadeIn();
                 $("#namer-input").delay("slow").fadeIn();
@@ -206,7 +216,7 @@
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
-            <div><h1><b>Weather.IO</b></h1></div>
+            <div style="display:none;" id="start"><h1><b>Weather.IO</b></h1></div>
         </div>
         <div id="box">
             <div id="namer">
@@ -233,7 +243,8 @@
         </div>
     </div>
 </div>
-<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;">
+<div id="last" style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;display: none;">
+
     <h3>&lt;/&gt; with &#10084;</h3>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
