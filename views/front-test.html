@@ -41,21 +41,23 @@
         #namer {
             position: relative;
             max-width: 400px;
-            margin: 149px auto 0;
+            margin: 0px;
+            margin-top: 150px;
         }
 
         #namer input {
-            border: 0;
+            border: 0px;
             border-bottom: 2px solid #1BB1DC;
             width: 100%;
             font-size: 30px;
             line-height: 35px;
             height: 70px;
             text-align: center;
-            padding: 10px;
+            padding-right: 10px;
             background: transparent;
             color: #fff;
             font-family: 'ABeeZee',sans-serif;
+
         }
 
 
@@ -104,13 +106,14 @@
             width: 65%;
             height:65%;
             display: inline-block;
-            margin-right: 5%;
+            /*margin-right: 5%;*/   
             border-radius: 80px;
             font-size: 16px;
             /*text-transform: uppercase;*/
             letter-spacing: 0.3px;
             margin-top: 20px;
             float: left;
+            flex: 
         }
 
 
@@ -159,12 +162,16 @@
 
         #one {
             margin-left: 80px;
-            
 
         }
 
         #two {
             margin-left: 80px;
+            display: inline;
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+            
+            
+                    
         }
         #this {
             margin-left: 80px;
@@ -247,17 +254,17 @@
                         </form>
 
                         <div class="animated fadeInLeft" id="one">
-                            <span><button id="first" onclick="change()">Search</button></span>
+                            <span><button onclick="change()">Search</button></span>
                         </div>
 
-                        <div class="animated fadeInRight" id="two">
+                        <span class="animated fadeInRight" id="two" style="float: left;">
                             <span><button onclick="getLocation()">Go</button></span>
-                        </div>
+                        </span>
 
                     </div>
 
-                    <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p>
-
+                <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p>
+ -->
                 </div>
 
             </div>
