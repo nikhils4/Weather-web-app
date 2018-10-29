@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
@@ -17,7 +18,7 @@
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
             transition: background-color 5000s ease-in-out 0s;
-            -webkit-text-fill-color: #fff !important;
+            -webkit-text-fill-color: #fff;
         }
 
         html {
@@ -45,17 +46,18 @@
         }
 
         #namer input {
-            border: 0;
+            border: 0px;
             border-bottom: 2px solid #1BB1DC;
             width: 100%;
             font-size: 30px;
             line-height: 35px;
             height: 70px;
             text-align: center;
-            padding: 10px;
+            padding-right: 10px;
             background: transparent;
             color: #fff;
             font-family: 'ABeeZee',sans-serif;
+
         }
 
 
@@ -146,23 +148,17 @@
 
         /*button {*/
 
-            /*background-color: transparent;*/
-            /*outline: none;*/
-            /*border: 0px;*/
-            /*color: #fff;*/
-            /*font-size: 20px;*/
-            /*cursor: pointer;*/
-            /*width: 100%;*/
-            /*height:100%;*/
+        /*background-color: transparent;*/
+        /*outline: none;*/
+        /*border: 0px;*/
+        /*color: #fff;*/
+        /*font-size: 20px;*/
+        /*cursor: pointer;*/
+        /*width: 100%;*/
+        /*height:100%;*/
         /*}*/
 
-        .animated {
-            animation-duration: 2s;
-        }
 
-        .hide {
-            display: none;
-        }
 
         #one {
             /*margin-left: 80px;*/
@@ -172,12 +168,19 @@
         }
 
         #two {
+
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
         }
 
+        .hide {
+            display: none;
+        }
 
+        .display {
+            visibility: hidden;
+        }
 
     </style>
     <script type="text/javascript">
@@ -221,9 +224,10 @@
             d.classList.remove('hide');
 
             var b = document.getElementById("one");
-            b.classList.add('hide');
+            b.classList.add('display');
+
             var c = document.getElementById("two");
-            c.classList.add('hide');
+            c.classList.add('display');
         }
 
 
@@ -237,7 +241,7 @@
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
-            <div class="animated jello "><h1><b>Weather.IO</b></h1></div>
+            <div><h1><b>Weather.IO</b></h1></div>
         </div>
         <div id="box">
 
@@ -245,28 +249,25 @@
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
 
-
-
                     <div class="namer-controls">
                         <form action='/res'>
                     <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                                <button class="hide" id="this" type="submit">Search route</button>
-
+                            <button class="hide" id="this" type="submit">Search</button>
 
                         </form>
 
 
-                            <button id="one" onclick="change()">Search main</button>
+                        <button id="one" onclick="change()">Search</button>
 
-                            <button id="two" onclick="getLocation()">Go</button>
+                        <button id="two" onclick="getLocation()">Go</button>
+
 
                     </div>
 
-                    <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p>
-
+                    <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
 
                 </div>
 
@@ -290,13 +291,6 @@
     <button type="submit" id="secondClick"></button>
 
 </form>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-
-
-
-
-
-
 </body>
 </html>
