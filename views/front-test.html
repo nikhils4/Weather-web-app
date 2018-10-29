@@ -5,13 +5,11 @@
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
-
         * {
             box-sizing: border-box;
         }
@@ -22,31 +20,26 @@
             transition: background-color 5000s ease-in-out 0s;
             -webkit-text-fill-color: #fff;
         }
-
         html {
             margin : 0px;
             height : 100%;
         }
-
-
         body {
             background-attachment: fixed;
             margin: 0;
-            height : 100%;
-            background: #000046;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(#1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient( #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            height: 100%;
+            background: #000046; /* fallback for old browsers */
+            background: -webkit-linear-gradient(#1CB5E0, #000046); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(#1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
         }
-
         #namer {
             position: relative;
             width: 400px;
             margin: 149px auto 0;
         }
-
         #namer input {
             border: 0px;
             border-bottom: 2px solid #1BB1DC;
@@ -61,29 +54,22 @@
             font-family: 'ABeeZee',sans-serif;
 
         }
-
-
         #namer input:focus {
             outline: 0;
             color: #fff;
         }
-
         #namer input::-webkit-input-placeholder {
             color: #fff;
         }
-
         #namer input:-ms-input-placeholder {
             color: #fff;
         }
-
         #namer input::-ms-input-placeholder {
             color: #fff;
         }
-
         #namer input::placeholder {
             color: #fff;
         }
-
         .namer-controls {
             position: relative;
             display: block;
@@ -94,14 +80,11 @@
             cursor: pointer;
 
         }
-
-
         .namer-controls div {
             float: left;
             width: 50%;
 
         }
-
         button {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
             padding: 20px 10px;
@@ -120,23 +103,16 @@
             cursor: pointer;
             /*width: 100%;*/
             /*height:100%;*/
-
         }
-
-
         .namer-controls div span:last-child {
             margin-right: 0;
         }
-
-
-
         #box {
             width:50%;
             height:50%;
             margin:0 auto;
             border-radius: 100px;
         }
-
         #Header {
             font-family: 'Comfortaa', cursive;
             margin-top: 0px;
@@ -146,65 +122,40 @@
             cursor: pointer;
             /*background-color: red;*/
         }
-
-        /*button {*/
-
-        /*background-color: transparent;*/
-        /*outline: none;*/
-        /*border: 0px;*/
-        /*color: #fff;*/
-        /*font-size: 20px;*/
-        /*cursor: pointer;*/
-        /*width: 100%;*/
-        /*height:100%;*/
-        /*}*/
-
-
-
         #one {
             /*margin-left: 80px;*/
             float: left;
             display: inline-block;
 
         }
-
         #two {
 
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
         }
-
         .hide {
             display: none;
         }
-
-
         #form {
             text-align: center;
             width : 500px;
         }
-
         #this {
             float: right;
         }
-
     </style>
     <script type="text/javascript">
-
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
             $scope.iconi="{{icon}}";
             $scope.a='change';
         }]);
-
-
         function secondClick() {
             setTimeout(function(){
                 document.getElementById("secondClick").click(); }, 0);
 
         }
-
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -212,7 +163,6 @@
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
         }
-
         function showPosition(position) {
             x = position.coords.latitude;
             y = position.coords.longitude;
@@ -222,8 +172,6 @@
             b.value = y;
             secondClick();
         }
-
-
         $(document).ready(function(){
             $("#one").click(function(){
                 $("#one").animate({left: '250px'}).fadeOut("slow");
@@ -232,27 +180,18 @@
                 $("#namer-input").delay("slow").fadeIn();
             });
         });
-
-
-
+        
     </script>
-
-
 </head>
-
 <body>
-
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
             <div><h1><b>Weather.IO</b></h1></div>
         </div>
         <div id="box">
-
-
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
-
                     <div class="namer-controls">
                         <form id="form" action='/res'>
                     <span id="namer-input" class="hide">
@@ -268,32 +207,23 @@
 
                         <button id="two" onclick="getLocation()"> <img src="images/location1.svg" width="40px" height="40px"></button>
 
-
                     </div>
-
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
-
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
-
 <div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;">
     <h3>&lt;/&gt; with &#10084;</h3>
-
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
-
 <form action='/locate' style="display:none;">
     <input type="text" name='name_lat' id="input_lat">
     <input type="text" name='name_lng' id="input_lng">
     <button type="submit" id="secondClick"></button>
-
 </form>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
