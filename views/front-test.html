@@ -6,7 +6,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -34,6 +33,7 @@
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
+            display: none;
         }
         #namer {
             position: relative;
@@ -136,6 +136,7 @@
         }
         .hide {
             display: none;
+            
         }
         #form {
             text-align: center;
@@ -144,6 +145,9 @@
         #this {
             float: right;
         }
+
+
+
     </style>
     <script type="text/javascript">
         var app=angular.module("app",[]);
@@ -173,21 +177,33 @@
             secondClick();
         }
         $(document).ready(function(){
+            $("body").fadeIn("slow");
+            $("#one").fadeIn("slow");
+            $("#two").fadeIn("slow");
+            $("#start").fadeIn("slow");
+            $("#last").fadeIn("slow");
+            
             $("#one").click(function(){
-                $("#one").animate({left: '250px'}).fadeOut("slow");
+                $("#one").animate({
+                    opacity: 0,
+                    marginLeft: '120px'
+                },'slow','linear',function() {
+                    $(this).remove();
+                })
                 $("#two").fadeOut("slow");
                 $("#this").delay("slow").fadeIn();
                 $("#namer-input").delay("slow").fadeIn();
             });
         });
-        
+
+
     </script>
 </head>
 <body>
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
-            <div><h1><b>Weather.IO</b></h1></div>
+            <div style="display:none;" id="start"><h1><b>Weather.IO</b></h1></div>
         </div>
         <div id="box">
             <div id="namer">
@@ -202,10 +218,10 @@
 
                         </form>
 
+                        <button style="display:none;" id="one" onclick="change()"> <img src="images/search.svg" width="40px" height="40px"> </button>
 
-                        <button id="one" onclick="change()"> <img src="images/search.svg" width="40px" height="40px"> </button>
-
-                        <button id="two" onclick="getLocation()"> <img src="images/location1.svg" width="40px" height="40px"></button>
+                        <button style="display:none;" id="two" onclick="getLocation()"> <img src="images/location1.svg" width="40px" height="40px">
+                        </button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
@@ -214,7 +230,7 @@
         </div>
     </div>
 </div>
-<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;">
+<div id="last" style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 240px; color: white; text-decoration: none;display: none;">
     <h3>&lt;/&gt; with &#10084;</h3>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
