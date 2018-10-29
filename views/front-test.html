@@ -178,7 +178,9 @@
             display: none;
         }
 
-
+        .display {
+            visibility: hidden;
+        }
 
     </style>
     <script type="text/javascript">
@@ -222,27 +224,11 @@
             d.classList.remove('hide');
 
             var b = document.getElementById("one");
-            b.classList.add('hide');
+            b.classList.add('display');
+
             var c = document.getElementById("two");
-            c.classList.add('hide');
+            c.classList.add('display');
         }
-
-        $(document).ready(function(){
-            $("#one").click(function(){
-                $("#one").addClass("hide");
-                $("#two").addClass("hide");
-                $("#namer-input").removeClass("hide");
-                $("#this").removeClass("hide");
-            })
-        })
-
-//     $("#one").click(function(){
-    
-//     $("two").hide();
-//     $("#namer-input").show();
-//     $("this").show();
-//     $("#one").hide();
-// });
 
 
     </script>
@@ -255,7 +241,7 @@
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
-            <div class="animated jello "><h1><b>Weather.IO</b></h1></div>
+            <div><h1><b>Weather.IO</b></h1></div>
         </div>
         <div id="box">
 
@@ -270,7 +256,6 @@
                     </span>
 
                             <button class="hide" id="this" type="submit">Search route</button>
-
 
                         </form>
 
