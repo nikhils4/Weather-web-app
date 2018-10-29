@@ -16,6 +16,7 @@ var getWeather = (lat, lan, callback) => {
             callback(undefined, {
                 temperature : body.currently.temperature,
                 icon : body.currently.icon,
+                prediction : body.hourly.summary,
                 summary : body.currently.summary
             })
         }
