@@ -174,20 +174,15 @@
 
     <script type="text/javascript">
 
-
-
-
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
             $scope.iconi="{{icon}}";
             $scope.a='change';
         }]);
 
-
         function secondClick() {
             setTimeout(function(){
                 document.getElementById("secondClick").click(); }, 0);
-
         }
 
         function getLocation() {
@@ -207,10 +202,7 @@
             b.value = y;
             secondClick();
         }
-
-
-
-
+        
     </script>
 </head>
 
