@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Weather.IO</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
@@ -17,7 +18,7 @@
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
             transition: background-color 5000s ease-in-out 0s;
-            -webkit-text-fill-color: #fff !important;
+            -webkit-text-fill-color: #fff;
         }
 
         html {
@@ -149,29 +150,27 @@
             height:100%;
         }
 
-        .animated {
-            animation-duration: 2s;
-        }
 
-        .hide {
-            display: none;
-        }
 
         #one {
             /*margin-left: 80px;*/
             float: left;
-            display: inline-block !important;
+            display: inline-block;
 
         }
 
         #two {
 
             /*margin-left: 80px;*/
-            display: inline-block !important;
+            display: inline-block;
             float: right;
        }
         #this {
             margin-left: 80px;
+        }
+        
+        .hide {
+            display: none;
         }
 
     </style>
@@ -220,6 +219,23 @@
             d.classList.remove('hide');
         }
 
+        $(document).ready(function(){
+            $("#one").click(function(){
+                $("#one").addClass("hide");
+                $("#two").addClass("hide");
+                $("#namer-input").removeClass("hide");
+                $("#this").removeClass("hide");
+            })
+        })
+
+//     $("#one").click(function(){
+    
+//     $("two").hide();
+//     $("#namer-input").show();
+//     $("this").show();
+//     $("#one").hide();
+// });
+
 
     </script>
 </head>
@@ -237,34 +253,30 @@
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
 
-
-
                     <div class="namer-controls">
                         <form action='/res'>
                     <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <div id="this" class="animated fadeInLeft hide">
-                                <span ><button type="submit">Search</button></span>
+                            <div id="this" class="hide">
+                                <span><button type="submit">Search</button></span>
                             </div>
 
                         </form>
 
-                        <div class="animated fadeInLeft" id="one">
+                        <div id="one">
                             <span><button onclick="change()">Search</button></span>
                         </div>
 
-                        <div class="animated fadeInRight" id="two" style="float: left;">
+                        <div id="two">
                             <span><button onclick="getLocation()">Go</button></span>
                         </div>
-
                     </div>
 
-               <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p>
- -->
+               <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
 
-                </div>
+              </div>
 
             </div>
         </div>
@@ -287,6 +299,5 @@
 
 </form>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
 </html>
