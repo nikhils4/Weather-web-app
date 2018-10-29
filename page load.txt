@@ -105,7 +105,7 @@
         #box {
             width:50%;
             height:50%;
-            margin: 0 auto;
+            margin:0 auto;
             border-radius: 100px;
         }
         #Header {
@@ -124,6 +124,7 @@
 
         }
         #two {
+
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
@@ -164,8 +165,6 @@
             /*height:100%;*/
         }
     </style>
-
-
     <script type="text/javascript">
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
@@ -193,73 +192,23 @@
             b.value = y;
             secondClick();
         }
-
-
-
         $(document).ready(function(){
             $("body").fadeIn("slow");
             $("#one").fadeIn("slow");
             $("#two").fadeIn("slow");
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
-
             $("#one").click(function(){
-
                 $("#one").animate({
                     opacity: 0,
-                    marginLeft: '200px'
+                    marginLeft: '120px'
                 },'slow','linear',function() {
-                    $(this).hide();
-                });
-
-                $("#two").hide();
-
-                $("#last").animate({
-                            marginLeft: '100px',
-                            marginRight : '40px'
-                        },'slow','linear'
-                );
-
-
-
-                $("#start").animate({
-                            marginRight: '920px',
-                            marginLeft: '20px'
-                        },'slow','linear'
-                );
-
-
+                    $(this).remove();
+                })
+                $("#two").fadeOut("slow");
                 $("#this").delay("slow").fadeIn();
                 $("#namer-input").delay("slow").fadeIn();
-                $("#back").delay("slow").fadeIn();
             });
-
-            $("#back").click(function(){
-                $("#back").fadeOut();
-                $("#this").fadeOut();
-                $("#namer-input").fadeOut();
-
-                $("#start").animate({
-                            opacity:1,
-                            marginLeft: '520px',
-                            marginRight: '620px'
-                        },'slow','linear'
-                );
-                $("#one").animate({
-                    opacity: 1,
-                    marginLeft: '0px'
-                },'slow','linear',function() {
-                    $(this).fadeIn();
-                });
-                $("#two").delay("slow").fadeIn();
-
-                $("#last").animate({
-                            marginRight: '100px'
-                        },'slow','linear'
-                );
-
-            })
-
         });
     </script>
 </head>
@@ -273,15 +222,13 @@
             <div id="namer">
                 <div ng-if="a=='change'" id="main">
                     <div class="namer-controls">
-
                         <form id="form" action='/res'>
                     <span id="namer-input" class="hide">
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="back.svg"></span></button>
-
+                            <button class="hide" id="this"  type="submit"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button id="back" style="padding: 0px; "><img width="48px" height="48px" src="back.svg" ></button>
 
                         </form>
 
