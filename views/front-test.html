@@ -25,6 +25,7 @@
             margin : 0px;
             height : 100%;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
         }
 
         /*h1 {*/
@@ -36,11 +37,8 @@
             margin: 0;
             height: 100%;
             background: #000428;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,#004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,#004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            /*background: #000046; !* fallback for old browsers *!*/
-            /*background: -webkit-linear-gradient(#1CB5E0, #000046); !* Chrome 10-25, Safari 5.1-6 *!*/
-            /*background: linear-gradient(#1CB5E0, #000046); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
@@ -98,12 +96,13 @@
         }
         button {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+            background: #004e92;
             padding: 15px 40px;
             width:170px;
             display: inline-block;
             border-radius: 30px;
             margin-top: 7px;
-            background: #004e92;
+            /*background-color: transparent;*/
             outline: none;
             border: 0px;
             color: #fff;
@@ -144,11 +143,6 @@
         .hide {
             display: none;
         }
-
-        #main {
-            outline: none;
-        }
-
         #form {
             margin-right: 400px;
             text-align: center;
@@ -297,15 +291,15 @@
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="back.svg"></span></button>
+                            <button class="hide" id="this" type="submit"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
 
 
                         </form>
 
-                        <button id="one" onclick="change()"> <img src="search.svg" width="32px" height="32px"> </button>
+                        <button id="one" onclick="change()"> <img src="images/search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" onclick="getLocation()"><img src="images/location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
