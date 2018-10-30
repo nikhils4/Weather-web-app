@@ -29,8 +29,8 @@
 
             height : 100%;
             background: #000428;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,#004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,#004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
@@ -137,7 +137,7 @@
 
 <body>
 <form action="/">
-    <button style=" background: transparent !important" type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
+    <button style="background: transparent !important" type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
 </form>
 
 <div ng-app="app">
@@ -151,10 +151,7 @@
                 <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
                 <p id="status">{{summary}}</p>
                 <p id="predict">{{predict}}</p>
-
             </div>
-
-
             <img src="clear-day.svg" style="width:150px;height:150px" ng-if="iconi=='clear-day'">
             <img src="clear-night.svg" style="width:150px;height:150px" ng-if="iconi=='clear-night'">
             <img src="cloudy.svg" style="width:150px;height:150px" ng-if="iconi=='cloudy'">
@@ -171,19 +168,13 @@
             <p id="error">{{error}}</p>
         </div>
     </div>
-
 </div>
-
 <div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 30vh; margin-bottom: 30px; color: white; text-decoration: none;">
     <h3>&lt;&gt; with &#10084;</h3>
     <p style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
-
 </div>
-
-
-
 </body>
 </html>
