@@ -26,7 +26,7 @@ app.get('/res', (req,res) => {
             })
 
         }
-        else if (req.query.location == ' ') {
+        else if (req.query.location == ' ' ) {
             res.render('result.hbs', {
                 error : errorMessage
             })
