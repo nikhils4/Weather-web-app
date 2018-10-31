@@ -115,6 +115,7 @@
             width:50%;
             height:50%;
             margin: 0 auto;
+            
             border-radius: 100px;
         }
         #Header {
@@ -133,12 +134,14 @@
             /*margin-left: 80px;*/
             float: left;
             display: inline-block;
+            margin-top: 20%;
 
         }
         #two {
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
+            margin-top: 20%;
         }
         .hide {
             display: none;
@@ -226,17 +229,14 @@
 
                 $("#two").hide();
 
-                $("#last").animate({
-                        marginLeft: '100px',
-                        marginRight : '40px'
-                    },'slow','linear'
-                );
+                
 
 
 
                 $("#start").animate({
                         marginRight: '59.89vw',
-                        marginLeft: '1.3vw'
+                        marginLeft: '1.3vw',
+                        opacity: 0
                     },'slow','linear'
                 );
 
@@ -251,12 +251,13 @@
                 $("#this").fadeOut();
                 $("#namer-input").fadeOut();
 
-                $("#start").animate({
-                        opacity:1,
-                        marginLeft: '33.20vw',
-                        marginRight: '36.40vw'
-                    },'slow','linear'
-                );
+                // $("#start").animate({
+                //         opacity:0,
+                //         marginLeft: '33.20vw',
+                //         marginRight: '36.40vw'
+                //     },'slow','linear'
+                // );
+
                 $("#one").animate({
                     opacity: 1,
                     marginLeft: '0px'
@@ -265,10 +266,7 @@
                 });
                 $("#two").delay("slow").fadeIn();
 
-                $("#last").animate({
-                        marginRight: '100px'
-                    },'slow','linear'
-                );
+                
 
             })
 
@@ -279,27 +277,27 @@
 <div ng-app="app">
     <div ng-controller="emp">
         <div id="Header">
-            <div style="display:none;" id="start"><h1><b>Weather.IO</b></h1></div>
+            <div style="display:none;margin-left: 1%;" id="start" ><h1><b>Weather.IO</b></h1></div>
         </div>
-        <div id="box">
-            <div id="namer">
-                <div id="main">
-                    <div class="namer-controls">
+        <div id="box" style="text-align: center;margin-top: 10%;">
+            <div id="namer" style="text-align: center;">
+                <div id="main" style="text-align: center;">
+                    <div class="namer-controls" style="text-align: center;">
 
-                        <form id="form" action='/res'>
-                    <span id="namer-input" class="hide">
-                        <input type="text" name="location" placeholder="Search here">
+                        <form id="form" action='/res' style="text-align: center;">
+                    <span id="namer-input" class="hide" style="text-align: center;">
+                        <input type="text" name="location" placeholder="Search here" style="margin-top: 12%;margin-left:-18%">
                     </span>
 
-                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="back.svg"></span></button>
+                            <button class="hide" id="this" type="submit" style="margin-top: 14%;margin-left:-15%"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;margin-top: 15%;margin-left:-10%"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
 
 
                         </form>
 
-                        <button id="one" onclick="change()" style="display:none"> <img src="search.svg" width="32px" height="32px"> </button>
+                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()" style="display:none"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
