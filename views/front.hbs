@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather.IO</title>
-    <link rel="shortcut icon" href="favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
@@ -25,10 +24,12 @@
         html {
             margin : 0px;
             height : 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
         }
 
         /*h1 {*/
-            /*margin-top : 0;*/
+        /*margin-top : 0;*/
         /*}*/
 
         body {
@@ -36,8 +37,8 @@
             margin: 0;
             height: 100%;
             background: #000428;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
@@ -282,7 +283,7 @@
         </div>
         <div id="box">
             <div id="namer">
-                <div ng-if="a=='change'" id="main">
+                <div id="main">
                     <div class="namer-controls">
 
                         <form id="form" action='/res'>
@@ -290,15 +291,15 @@
                         <input type="text" name="location" placeholder="Search here">
                     </span>
 
-                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="back.svg"></span></button>
+                            <button class="hide" id="this" type="submit"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
 
 
                         </form>
 
-                        <button id="one" onclick="change()"> <img src="search.svg" width="32px" height="32px"> </button>
+                        <button id="one" onclick="change()"> <img src="images/search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" onclick="getLocation()"><img src="images/location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
