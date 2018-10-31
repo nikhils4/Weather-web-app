@@ -126,6 +126,10 @@
             color: rgba(250,250,250,1);
             cursor: pointer;
             /*padding-top: 5px;*/
+            text-align: center;
+            margin-right: 41%;
+            margin-bottom: 10%;
+            /*padding-top: 5px;
             /*padding-bottom: 5px;*/
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
             /*background-color: red;*/
@@ -134,14 +138,14 @@
             /*margin-left: 80px;*/
             float: left;
             display: inline-block;
-            margin-top: 20%;
+            margin-top: 15%;
 
         }
         #two {
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
-            margin-top: 20%;
+            margin-top: 15%;
         }
         .hide {
             display: none;
@@ -178,6 +182,16 @@
             /*width: 100%;*/
             /*height:100%;*/
         }
+
+        #logo {
+            margin-top: 100px;
+            display:none;
+        }
+
+        .mar {
+            margin-top: -100px;
+        }
+
     </style>
 
 
@@ -217,6 +231,7 @@
             $("#two").fadeIn("slow");
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
+            $("#logo").fadeIn("slow");
 
             $("#one").click(function(){
 
@@ -228,18 +243,6 @@
                 });
 
                 $("#two").hide();
-
-                
-
-
-
-                $("#start").animate({
-                        marginRight: '59.89vw',
-                        marginLeft: '1.3vw',
-                        opacity: 0
-                    },'slow','linear'
-                );
-
 
                 $("#this").delay("slow").fadeIn();
                 $("#namer-input").delay("slow").fadeIn();
@@ -257,7 +260,7 @@
                 //         marginRight: '36.40vw'
                 //     },'slow','linear'
                 // );
-
+                $("#one").addClass("mar");
                 $("#one").animate({
                     opacity: 1,
                     marginLeft: '0px'
@@ -265,8 +268,8 @@
                     $(this).fadeIn();
                 });
                 $("#two").delay("slow").fadeIn();
+                $("#two").addClass("mar");
 
-                
 
             })
 
@@ -276,6 +279,7 @@
 <body>
 <div ng-app="app">
     <div ng-controller="emp">
+        <span id="logo"><img src="images/logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>
         <div id="Header">
             <div style="display:none;margin-left: 1%;" id="start" ><h1><b>Weather.IO</b></h1></div>
         </div>
@@ -286,12 +290,11 @@
 
                         <form id="form" action='/res' style="text-align: center;">
                     <span id="namer-input" class="hide" style="text-align: center;">
-                        <input type="text" name="location" placeholder="Search here" style="margin-top: 12%;margin-left:-18%">
+                        <input type="text" name="location" placeholder="Search here" style="margin-left:-18%">
                     </span>
 
-                            <button class="hide" id="this" type="submit" style="margin-top: 14%;margin-left:-15%"> <img src="images/search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;margin-top: 15%;margin-left:-10%"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
-
+                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
 
                         </form>
 
