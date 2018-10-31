@@ -18,7 +18,6 @@ var geocodeAddress = (address, callback) => {
                 longitude: body.results[0].locations[0].latLng.lng,
                 street : body.results[0].locations[0].street,
                 area5 : body.results[0].locations[0].adminArea5,
-                area4 : body.results[0].locations[0].adminArea4,
                 state : body.results[0].locations[0].adminArea3,
                 country : body.results[0].locations[0].adminArea1
             });

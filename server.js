@@ -43,7 +43,6 @@ app.get('/res', (req,res) => {
                     res.render('result.hbs', {
                         street : results.street + ' ',
                         area5 : results.area5 + ' ',
-                        area4 : results.area4 + ' ',
                         state : results.state + ' ' ,
                         country : results.country,
                         predict : weatherResults.prediction,
@@ -86,7 +85,6 @@ app.get('/locate', (req,res) => {
                             res.render('result.hbs', {
                                 street : results.street + ' ',
                                 area5 : results.area5 + ' ',
-                                area4 : results.area4 + ' ',
                                 state : results.state + ' ' ,
                                 country : results.country,
                                 predict : weatherResults.prediction,
