@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather.IO</title>
+    <link rel="shortcut icon" type="images/ico" href="favicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
@@ -115,7 +116,7 @@
             width:50%;
             height:50%;
             margin: 0 auto;
-            
+
             border-radius: 100px;
         }
         #Header {
@@ -126,9 +127,12 @@
             color: rgba(250,250,250,1);
             cursor: pointer;
             /*padding-top: 5px;*/
-            text-align: center;
+            /*text-align: center;*/
+            float: right;
+
             margin-right: 41%;
             margin-bottom: 10%;
+            taxt-align: center;
             /*padding-top: 5px;
             /*padding-bottom: 5px;*/
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
@@ -279,7 +283,7 @@
 <body>
 <div ng-app="app">
     <div ng-controller="emp">
-        <span id="logo"><img src="images/logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>
+        <span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>
         <div id="Header">
             <div style="display:none;margin-left: 1%;" id="start" ><h1><b>Weather.IO</b></h1></div>
         </div>
@@ -293,14 +297,14 @@
                         <input type="text" name="location" placeholder="Search here" style="margin-left:-18%">
                     </span>
 
-                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="images/search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
+                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="back.svg"></span></button>
 
                         </form>
 
-                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px"> </button>
+                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->

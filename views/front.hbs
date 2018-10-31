@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather.IO</title>
+    <link rel="shortcut icon" type="images/ico" href="favicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
@@ -115,6 +116,7 @@
             width:50%;
             height:50%;
             margin: 0 auto;
+
             border-radius: 100px;
         }
         #Header {
@@ -125,6 +127,13 @@
             color: rgba(250,250,250,1);
             cursor: pointer;
             /*padding-top: 5px;*/
+            /*text-align: center;*/
+            float: right;
+
+            margin-right: 41%;
+            margin-bottom: 10%;
+            taxt-align: center;
+            /*padding-top: 5px;
             /*padding-bottom: 5px;*/
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
             /*background-color: red;*/
@@ -133,12 +142,14 @@
             /*margin-left: 80px;*/
             float: left;
             display: inline-block;
+            margin-top: 15%;
 
         }
         #two {
             /*margin-left: 80px;*/
             display: inline-block;
             float: right;
+            margin-top: 15%;
         }
         .hide {
             display: none;
@@ -175,6 +186,16 @@
             /*width: 100%;*/
             /*height:100%;*/
         }
+
+        #logo {
+            margin-top: 100px;
+            display:none;
+        }
+
+        .mar {
+            margin-top: -100px;
+        }
+
     </style>
 
 
@@ -214,6 +235,7 @@
             $("#two").fadeIn("slow");
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
+            $("#logo").fadeIn("slow");
 
             $("#one").click(function(){
 
@@ -226,21 +248,6 @@
 
                 $("#two").hide();
 
-                $("#last").animate({
-                            marginLeft: '100px',
-                            marginRight : '40px'
-                        },'slow','linear'
-                );
-
-
-
-                $("#start").animate({
-                            marginRight: '59.89vw',
-                            marginLeft: '1.3vw'
-                        },'slow','linear'
-                );
-
-
                 $("#this").delay("slow").fadeIn();
                 $("#namer-input").delay("slow").fadeIn();
                 $("#back").delay("slow").fadeIn();
@@ -251,12 +258,13 @@
                 $("#this").fadeOut();
                 $("#namer-input").fadeOut();
 
-                $("#start").animate({
-                            opacity:1,
-                            marginLeft: '33.20vw',
-                            marginRight: '36.40vw'
-                        },'slow','linear'
-                );
+                // $("#start").animate({
+                //         opacity:0,
+                //         marginLeft: '33.20vw',
+                //         marginRight: '36.40vw'
+                //     },'slow','linear'
+                // );
+                $("#one").addClass("mar");
                 $("#one").animate({
                     opacity: 1,
                     marginLeft: '0px'
@@ -264,11 +272,8 @@
                     $(this).fadeIn();
                 });
                 $("#two").delay("slow").fadeIn();
+                $("#two").addClass("mar");
 
-                $("#last").animate({
-                            marginRight: '100px'
-                        },'slow','linear'
-                );
 
             })
 
@@ -278,28 +283,28 @@
 <body>
 <div ng-app="app">
     <div ng-controller="emp">
+        <span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>
         <div id="Header">
-            <div style="display:none;" id="start"><h1><b>Weather.IO</b></h1></div>
+            <div style="display:none;margin-left: 1%;" id="start" ><h1><b>Weather.IO</b></h1></div>
         </div>
-        <div id="box">
-            <div id="namer">
-                <div id="main">
-                    <div class="namer-controls">
+        <div id="box" style="text-align: center;margin-top: 10%;">
+            <div id="namer" style="text-align: center;">
+                <div id="main" style="text-align: center;">
+                    <div class="namer-controls" style="text-align: center;">
 
-                        <form id="form" action='/res'>
-                    <span id="namer-input" class="hide">
-                        <input type="text" name="location" placeholder="Search here">
+                        <form id="form" action='/res' style="text-align: center;">
+                    <span id="namer-input" class="hide" style="text-align: center;">
+                        <input type="text" name="location" placeholder="Search here" style="margin-left:-18%">
                     </span>
 
-                            <button class="hide" id="this" type="submit"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;"><span> <img width="48px" height="48px" src="back.svg"></span></button>
-
+                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="back.svg"></span></button>
 
                         </form>
 
-                        <button id="one" onclick="change()" style="display:none"> <img src="search.svg" width="32px" height="32px"> </button>
+                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()" style="display:none"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
