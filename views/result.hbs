@@ -106,7 +106,7 @@
         }
 
         #humidity {
-            margin: 40px 0 20px 0;
+            margin: 40px 200px 20px 0;
             font-size : 25px;
             float: right;
             text-align: center;
@@ -115,7 +115,7 @@
         }
 
         #pressure {
-            margin: 40px 0  20px 0;
+            margin: 40px 0  20px 200px;
             float:left;
             font-size : 25px;
             text-align: center;
@@ -170,7 +170,7 @@
 <div ng-app="app">
     <div ng-controller="emp">
 
-        <div id="box" style="width: 70%">
+        <div id="box" style="width: 90%">
             <div id="table" >
                 <p id="address">{{street}}{{area5}}{{state}}{{country}}</p>
                 <span ng-if="error==''" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
