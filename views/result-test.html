@@ -87,6 +87,8 @@
 
         #status {
             font-size : 25px;
+            float: left;
+            margin-left: 35%;
         }
         /*h1 {*/
         /*margin-top : 0;*/
@@ -100,6 +102,18 @@
         #predict {
             font-size: 20px;
         }
+
+        #humidity {
+            font-size : 25px;
+            margin-left: 75%;
+        }
+
+        #pressure {
+            float:left;
+            font-size : 25px;
+            margin-left: 10%;
+        }
+
     </style>
     <script>
         $(document).ready(function(){
@@ -112,7 +126,7 @@
 
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
-            $scope.iconi='{{icon}}';
+            $scope.iconi='clear-day';
             $scope.tempF = '{{tempF}}';
             $scope.tempC = '{{tempC}}';
             $scope.predict = "{{predict}}"
@@ -151,25 +165,32 @@
                 <span ng-if="error==''"   id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
                 <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
                 <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
-                <p id="status">{{summary}}</p>
+                
                 <p id="predict">{{predict}}</p>
 
             </div>
 
+                <div><img src="images/pressure.svg" style="width:150px;height:150px;float:left;margin-left:-2%;"></div>
 
-            <img src="clear-day.svg" style="width:150px;height:150px" ng-if="iconi=='clear-day'">
+            <img src="images/clear-day.svg" style="width:150px;height:150px;float:left;margin-left: 19%" ng-if="iconi=='clear-day'">
             <img src="clear-night.svg" style="width:150px;height:150px" ng-if="iconi=='clear-night'">
             <img src="cloudy.svg" style="width:150px;height:150px" ng-if="iconi=='cloudy'">
             <img src="fog.svg" style="width:150px;height:150px" ng-if="iconi=='fog'">
             <img src="hail.svg" style="width:150px;height:150px" ng-if="iconi=='hail'">
             <img src="partly-cloudy-day.svg" style="width:150px;height:150px" ng-if="iconi=='partly-cloudy-day'">
             <img src="partly-cloudy-night.svg" style="width:150px;height:150px" ng-if="iconi=='partly-cloudy-night'">
-            <img src="rain.svg" style="width:150px;height:150px" ng-if="iconi=='rain'">
-            <img src="sleet.svg" style="width:150px;height:150px" ng-if="iconi==='sleet'">
-            <img src="snow.svg" style="width:150px;height:150px" ng-if="iconi==='snow'">
-            <img src="thunderstorm.svg" style="width:150px;height:150px" ng-if="iconi==='thunderstorm'">
-            <img src="tornado.svg" style="width:150px;height:150px" ng-if="iconi==='tornado'">
-            <img src="wind.svg" style="width:150px;height:150px" ng-if="iconi==='wind'">
+            <img src="rain.svg" style="width:150px;height:150px;float:left" ng-if="iconi=='rain'">
+            <img src="sleet.svg" style="width:150px;height:150px;float:left" ng-if="iconi==='sleet'">
+            <img src="snow.svg" style="width:150px;height:150px;float:left" ng-if="iconi==='snow'">
+            <img src="thunderstorm.svg" style="width:150px;height:150px;float:left" ng-if="iconi==='thunderstorm'">
+            <img src="tornado.svg" style="width:150px;height:150px;float:left" ng-if="iconi==='tornado'">
+            <img src="wind.svg" style="width:150px;height:150px;float:left" ng-if="iconi==='wind'">
+
+                <div><img src="images/humidity.svg" style="width:150px;height:150px;margin-left: 13%"></div>
+
+                <p id="pressure">{{pressure}}80</p>
+                <p id="status">{{summary}}80</p>
+                <p id="humidity">{{humidity}}80</p>
             <p id="error">{{error}}</p>
         </div>
     </div>
@@ -184,8 +205,5 @@
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 
 </div>
-
-
-
 </body>
 </html>
