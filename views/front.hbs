@@ -149,9 +149,9 @@
             float: right;
             margin-top: 15%;
         }
-        .hide {
-            visibility: hidden;
-        }
+        /*.hide {*/
+            /*visibility: hidden;*/
+        /*}*/
         #form {
             margin-right: 400px;
             text-align: center;
@@ -222,13 +222,21 @@
         }
 
         $(document).ready(function(){
+            $("#back").css(
+                    "display" , "none"
+            );
+            $("#namer-input").css(
+                    "display" , "none"
+            );
+            $("#this").css(
+                    "display" , "none"
+            );
             $("body").fadeIn("slow");
             $("#one").fadeIn("slow");
             $("#two").fadeIn("slow");
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
             $("#logo").fadeIn("slow");
-
             $("#Header").fadeIn("slow");
 
 
@@ -237,27 +245,49 @@
 
             $("#one").click(function(e){
                 e.preventDefault();
-                $("#one").fadeOut('fast').css(
-                        "display", "none"
+                $("#one").css(
+                        "display" , "none"
                 );
 
-                $("#two").fadeOut('fast', function() {
-                    $("#namer-input").removeClass("hide").fadeIn();
-                    $("#this").removeClass("hide").fadeIn();
-                    $("#back").fadeIn();
-                })
+                $("#two").css(
+                        "display" , "none"
+                );
+                $("#namer-input").css(
+                        "display" , "block"
+                );
+                $("#this").css(
+                        "display" , "block"
+                );
+                $("#back").css(
+                        "display" , "block"
+                );
+
 
             });
 
             $("#back").click(function(){
-                $("#back").fadeOut('fast').css(
-                        "display", "none"
+                // $("#back").fadeOut('slow');
+                // $("#this").fadeOut('slow');
+                // $("#namer-input").fadeOut('slow');
+
+                // $("#back").css(
+                //     "display" , "none"
+                // );
+                // $("#this").fadeOut('slow').animate({
+                //     opacity : 0
+                // }, 'slow', 'linear');
+                // $("#namer-input").fadeOut('slow').animate({
+                //     opacity : 0
+                // }, 'slow', 'linear');
+
+                $("#namer-input").css(
+                        "display" , "none"
                 );
-                $("#this").fadeOut('fast').css(
-                        "display", "none"
+                $("#this").css(
+                        "display" , "none"
                 );
-                $("#namer-input").fadeOut('fast').css(
-                    "display", "none"
+                $("#back").css(
+                        "display" , "none"
                 );
 
                 // $("#start").animate({
@@ -268,8 +298,14 @@
                 // );
                 //
 
-                $("#one").delay('slow').fadeIn();
-                $("#two").delay('slow').fadeIn();
+                $("#one").css(
+                        "display" , "block"
+                );
+
+                $("#two").css(
+                        "display" , "block"
+                );
+
 
 
             })
