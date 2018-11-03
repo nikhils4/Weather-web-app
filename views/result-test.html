@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" >
+
 <head>
+
     <meta charset="UTF-8">
     <title>WeatherIO</title>
     <link rel="shortcut icon" type="ico" href="favicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="images/animate.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
+
         * {
             box-sizing: border-box;
         }
+
         html {
             margin: 0;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -40,12 +41,12 @@
         #Header {
             margin-top: 50px;
             text-align: center;
-            font-size: 60px;
+            font-size: 30px;
             color: rgba(250,250,250,1);
             font-family: 'Comfortaa', cursive;
             cursor: pointer;
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
-            display: none;   
+
         }
 
         #box {
@@ -70,27 +71,19 @@
 
         #address {
             font-family: 'ABeeZee', sans-serif;
-            font-size: 25px;
+            font-size: 30px;
         }
 
-        /*.temp {
+        .temp {
             margin-top: 30px;
             margin-bottom: 40px;
             font-size: 85px;
             cursor: pointer;
-        }*/
-
-        #tc {
-            font-size: 85px;
-            cursor: pointer;
         }
-
 
         #deg {
             font-size: 30px;
-            
         }
-
 
         #status {
             font-size : 25px;
@@ -105,14 +98,6 @@
         #error {
             font-size: 25px;
 
-        }
-
-        .hide {
-            display: none;
-        }
-
-        .display {
-            display: block;
         }
 
         #predict {
@@ -136,31 +121,52 @@
             text-align: center;
             display: inline-block;
         }
+        #pressure, #humidity, #status {
+
+            z-index: 1;
+            background: #107DAC;  /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+
+            /*position: relative;*/
+            display: inline-block;
+            border-radius: 20px;
+            width: 25%;
+            height: 20%;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            /*padding: 20px 38px 100px 38px;*/
+            margin: 10% auto ;
+            /*margin: 10px;*/
+        }
+
+
+        #predict_content {
+            font-size: 20px;
+            margin: 40px 0  20px 0;
+        }
+
+        #predict {
+            z-index: 1;
+            background: #107DAC;  /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+
+            /*position: relative;*/
+            display: inline-block;
+            border-radius: 20px;
+            width: 100%;
+            height: 40%;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            /*padding: 20px 38px 100px 38px;*/
+            margin: 10% auto ;
+            /*margin: 10px;*/
+        }
 
 
     </style>
     <script>
         $(document).ready(function(){
             $("body").delay("slow").fadeIn();
-            $("#Header").fadeIn("slow");
-            $("#address").fadeIn("slow");
-            $("#flag").fadeIn("slow");
-            $("#tc").delay().fadeIn("slow");
-            $("#predict").fadeIn("slow");
-            $("#img_pre").fadeIn("slow");
-            $("#img_icon").fadeIn("slow");
-            $("#img_hum").fadeIn("slow");
-            $("#last").fadeIn("slow");
-            $("#pressure").fadeIn("slow");
-
-            $("#status").fadeIn("slow");
-            $("#humidity").fadeIn("slow");
-            $("#error").fadeIn("slow");
-
-            $("#tc").click(function(){
-                $("#tc").addClass("display");
-            })
-            
         })
     </script>
 
@@ -169,9 +175,7 @@
 
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
-
             $scope.iconi='{{icon}}';
-
             $scope.tempF = '{{tempF}}';
             $scope.tempC = '{{tempC}}';
             $scope.predict = "{{predict}}";
@@ -200,24 +204,22 @@
 <body>
 <form action="/">
     <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
-    <button style=" background: transparent !important" type="submit"><div id="Header"><b>Weather.IO</b></div></button>
+    <button style=" background: transparent !important" type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
 </form>
 
 <div ng-app="app">
     <div ng-controller="emp">
 
-        <div id="box" style="width: 90%">
+        <div id="box" style="width: 90%; margin-top: 4%;">
             <div id="table" >
-
                 <p id="address">{{street}}{{area5}}{{state}}{{country}}</p>
-                <span ng-if="error==''" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
+                <span ng-if="error==''" style="margin-bottom: 5%" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
                 <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
                 <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
             </div>
 
-
             <div id="status">
-                <p id="predict">Now</p>
+                <p id="predict_content">Now</p>
                 <img src="clear-day.svg" style="width:150px;height:150px;" ng-if="iconi=='clear-day'">
                 <img src="clear-night.svg" style="width:150px;height:150px;" ng-if="iconi=='clear-night'">
                 <img src="cloudy.svg" style="width:150px;height:150px;" ng-if="iconi=='cloudy'">
@@ -233,14 +235,14 @@
                 <img src="wind.svg" style="width:150px;height:150px;" ng-if="iconi==='wind'">
                 <p >{{summary}}</p>
             </div>
-            <div id="humidity">
-                <p id="predict">Humidity</p>
+            <div id="humidity" style="margin-right: 10%;">
+                <p id="predict_content">Humidity</p>
                 <div><img src="humidity.svg" style="width:150px;height:150px;"></div>
                 <p >{{humidity}} %</p>
             </div>
 
-            <div id="pressure">
-                <p id="predict">Wind speed</p>
+            <div id="pressure" style="margin-left: 10%;">
+                <p id="predict_content">Wind speed</p>
                 <div><img src="pressure.svg" style="width:150px;height:150px;" ></div>
                 <p >{{wind}} km/hr</p>
             </div>
@@ -249,14 +251,14 @@
                 <p >{{predict}}</p>
             </div>
 
-            <p id="error">{{error}}</p>
 
+            <p id="error">{{error}}</p>
         </div>
     </div>
 
 </div>
 
-<div id="last" style="display: none;text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 30vh; margin-bottom: 30px; color: white; text-decoration: none;">
+<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 30vh; margin-bottom: 30px; color: white; text-decoration: none;">
     <h3>&lt;&gt; with &#10084;</h3>
     <p style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
     <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>

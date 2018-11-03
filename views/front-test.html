@@ -120,8 +120,8 @@
         }
         #Header {
             font-family: 'Comfortaa', cursive;
-            margin-top: 0px;
-            text-align: center;
+            /*margin-top: 0px;*/
+            /*text-align: center;*/
             font-size: 60px;
             color: rgba(250,250,250,1);
             cursor: pointer;
@@ -129,7 +129,7 @@
             /*text-align: center;*/
             /*float: right;*/
 
-            margin-right: 41%;
+            /*margin-right: 41%;*/
             margin-bottom: 10%;
             text-align: center;
             /*padding-top: 5px;
@@ -186,10 +186,10 @@
             /*height:100%;*/
         }
 
-        #logo {
-            margin-top: 100px;
-            display:none;
-        }
+        /*#logo {*/
+        /*margin-top: 100px;*/
+        /*display:none;*/
+        /*}*/
 
         .mar {
             margin-top: -100px;
@@ -279,10 +279,19 @@
 <body>
 <div ng-app="app">
     <div ng-controller="emp" style="display: inline;">
-        <span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:6%;height: 6%;display: inline;"></span>
-        <div id="Header" style="display:inline;">
-            <div style="display:inline;display:none;width: 80%;text-align: center;" id="start"><b>Weather.IO</b></div>
-        </div>
+        <img id="logo" src="logo.svg" height="100px" width="100px" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
+
+
+        <p id="Header" style="padding: 1%; text-align: center; position: relative; margin-top: 2%">Weather.IO</p>
+
+        <!--<div style="text-align: center;position: relative;" >-->
+
+
+        <!--</div>-->
+
+
+
+
         <div id="box" style="text-align: center;margin-top: 10%;">
             <div id="namer" style="text-align: center;">
                 <div id="main" style="text-align: center;">
