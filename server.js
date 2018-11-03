@@ -19,7 +19,7 @@ app.get('/', (req,res) => {
 });
 
 app.get('/res', (req,res) => {
-    if (/[^a-zA-Z0-9]/i.test(req.query.location)){
+    if (/[^a-zA-Z0-9 ,]/i.test(req.query.location)){
         res.render('result.hbs', {
             error : "Hey, this is not the valid input. Try entering some other place."
         })
@@ -59,7 +59,8 @@ app.get('/res', (req,res) => {
                             summary : weatherResults.summary,
                             wind : weatherResults.wind,
                             humidity : (weatherResults.humidity)*100,
-                            pressure : weatherResults.pressure
+                            pressure : weatherResults.pressure,
+                            url : encodeURIComponent( results.area5 + results.state )
                         });
                     }
                 });
@@ -106,7 +107,8 @@ app.get('/locate', (req,res) => {
                                 summary : weatherResults.summary,
                                 wind : weatherResults.wind,
                                 humidity : (weatherResults.humidity)*100,
-                                pressure : weatherResults.pressure
+                                pressure : weatherResults.pressure,
+                                url : encodeURIComponent( results.area5 + results.state)
                             });
                         }
                     });
