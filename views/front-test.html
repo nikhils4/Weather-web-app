@@ -29,9 +29,9 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /*h1 {*/
-        /*margin-top : 0;*/
-        /*}*/
+        h1 {
+        display: inline;
+        }
 
         body {
             background-attachment: fixed;
@@ -116,14 +116,13 @@
             width:50%;
             height:50%;
             margin: 0 auto;
-
             border-radius: 100px;
         }
         #Header {
             font-family: 'Comfortaa', cursive;
             margin-top: 0px;
             text-align: center;
-            font-size: 30px;
+            font-size: 60px;
             color: rgba(250,250,250,1);
             cursor: pointer;
             /*padding-top: 5px;*/
@@ -227,8 +226,6 @@
             secondClick();
         }
 
-
-
         $(document).ready(function(){
             $("body").fadeIn("slow");
             $("#one").fadeIn("slow");
@@ -274,7 +271,6 @@
                 $("#two").delay("slow").fadeIn();
                 $("#two").addClass("mar");
 
-
             })
 
         });
@@ -282,10 +278,10 @@
 </head>
 <body>
 <div ng-app="app">
-    <div ng-controller="emp">
-        <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
-        <div id="Header">
-            <div style="display:none;margin-left: 63%;" id="start" ><h1><b>Weather.IO</b></h1></div>
+    <div ng-controller="emp" style="display: inline;">
+        <span id="logo"><img src="images/logo.svg" style="margin-top: 23px;margin-left: 50px;width:6%;height: 6%;display: inline;"></span>
+        <div id="Header" style="display:inline;">
+            <div style="display:inline;display:none;width: 80%;text-align: center;" id="start"><b>Weather.IO</b></div>
         </div>
         <div id="box" style="text-align: center;margin-top: 10%;">
             <div id="namer" style="text-align: center;">
