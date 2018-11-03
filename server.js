@@ -1,5 +1,5 @@
 const express = require('express');
-const hbs = require('hbs')
+const hbs = require('hbs');
 const geocode = require('./geocode.js');
 const weather = require('./weather.js');
 const reverse = require('./reverse.js');
@@ -19,43 +19,51 @@ app.get('/', (req,res) => {
 });
 
 app.get('/res', (req,res) => {
-    geocode.geocodeAddress(req.query.location, (errorMessage, results) => {
-        if (errorMessage) {
-            res.render('result.hbs', {
-                error : errorMessage
-            })
+    if (/[^a-zA-Z0-9]/i.test(req.query.location)){
+        res.render('result.hbs', {
+            error : "Hey, this is not the valid input. Try entering some other place."
+        })
+    }
+    else {
+        geocode.geocodeAddress(req.query.location, (errorMessage, results) => {
+            if (errorMessage) {
+                res.render('result.hbs', {
+                    error : errorMessage
+                })
 
-        }
-        else if (req.query.location == ' ' ) {
-            res.render('result.hbs', {
-                error : errorMessage
-            })
+            }
+            else if (req.query.location == ' ' ) {
+                res.render('result.hbs', {
+                    error : errorMessage
+                })
 
-        }
-        else {
-            weather.getWeather(results.latitute, results.longitude, (errorMessage, weatherResults) => {
-                if (errorMessage) {
-                    res.render('result.hbs', {
-                        error: errorMessage
-                    })
-                }
-                else {
-                    res.render('result.hbs', {
-                        street : results.street + ' ',
-                        area5 : results.area5 + ' ',
-                        state : results.state + ' ' ,
-                        country : results.country,
-                        predict : weatherResults.prediction,
-                        tempF : Math.round(weatherResults.temperature),
-                        tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
-                        icon : weatherResults.icon,
-                        body : JSON.stringify(results.body, undefined, 2),
-                        summary : weatherResults.summary
-                    });
-                }
-            });
-        }
-    });
+            }
+            else {
+                weather.getWeather(results.latitute, results.longitude, (errorMessage, weatherResults) => {
+                    if (errorMessage) {
+                        res.render('result.hbs', {
+                            error: errorMessage
+                        })
+                    }
+                    else {
+                        res.render('result.hbs', {
+                            street : results.street + ' ',
+                            area5 : results.area5 + ' ',
+                            state : results.state + ' ' ,
+                            country : results.country,
+                            predict : weatherResults.prediction,
+                            tempF : Math.round(weatherResults.temperature),
+                            tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
+                            icon : weatherResults.icon,
+                            body : JSON.stringify(results.body, undefined, 2),
+                            summary : weatherResults.summary
+                        });
+                    }
+                });
+            }
+        });
+    }
+
 });
 
 
