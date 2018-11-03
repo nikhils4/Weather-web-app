@@ -6,9 +6,8 @@
     <link rel="shortcut icon" type="ico" href="favicon.ico"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="images/animate.min.css">
+    <link rel="stylesheet" href="animate.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -150,9 +149,9 @@
             float: right;
             margin-top: 15%;
         }
-        .hide {
-            display: none;
-        }
+        /*.hide {*/
+        /*visibility: hidden;*/
+        /*}*/
         #form {
             margin-right: 400px;
             text-align: center;
@@ -199,11 +198,7 @@
 
 
     <script type="text/javascript">
-        var app=angular.module("app",[]);
-        app.controller("emp",['$scope',function($scope){
-            $scope.iconi="{{icon}}";
-            $scope.a='change';
-        }]);
+
         function secondClick() {
             setTimeout(function(){
                 document.getElementById("secondClick").click(); }, 0);
@@ -227,6 +222,15 @@
         }
 
         $(document).ready(function(){
+            $("#back").css(
+                "display" , "none"
+            );
+            $("#namer-input").css(
+                "display" , "none"
+            );
+            $("#this").css(
+                "display" , "none"
+            );
             $("body").fadeIn("slow");
             $("#one").fadeIn("slow");
             $("#two").fadeIn("slow");
@@ -235,26 +239,56 @@
             $("#logo").fadeIn("slow");
             $("#Header").fadeIn("slow");
 
-            $("#one").click(function(){
 
-                $("#one").animate({
-                    opacity: 0,
-                    marginLeft: '200px'
-                },'slow','linear',function() {
-                    $(this).hide();
-                });
 
-                $("#two").hide();
 
-                $("#this").delay("slow").fadeIn();
-                $("#namer-input").delay("slow").fadeIn();
-                $("#back").delay("slow").fadeIn();
+
+            $("#one").click(function(e){
+                e.preventDefault();
+                $("#one").css(
+                    "display" , "none"
+                );
+
+                $("#two").css(
+                    "display" , "none"
+                );
+                $("#namer-input").css(
+                    "display" , "block"
+                );
+                $("#this").css(
+                    "display" , "block"
+                );
+                $("#back").css(
+                    "display" , "block"
+                );
+
+
             });
 
             $("#back").click(function(){
-                $("#back").fadeOut();
-                $("#this").fadeOut();
-                $("#namer-input").fadeOut();
+                // $("#back").fadeOut('slow');
+                // $("#this").fadeOut('slow');
+                // $("#namer-input").fadeOut('slow');
+
+                // $("#back").css(
+                //     "display" , "none"
+                // );
+                // $("#this").fadeOut('slow').animate({
+                //     opacity : 0
+                // }, 'slow', 'linear');
+                // $("#namer-input").fadeOut('slow').animate({
+                //     opacity : 0
+                // }, 'slow', 'linear');
+
+                $("#namer-input").css(
+                    "display" , "none"
+                );
+                $("#this").css(
+                    "display" , "none"
+                );
+                $("#back").css(
+                    "display" , "none"
+                );
 
                 // $("#start").animate({
                 //         opacity:0,
@@ -262,15 +296,17 @@
                 //         marginRight: '36.40vw'
                 //     },'slow','linear'
                 // );
-                $("#one").addClass("mar");
-                $("#one").animate({
-                    opacity: 1,
-                    marginLeft: '0px'
-                },'slow','linear',function() {
-                    $(this).fadeIn();
-                });
-                $("#two").delay("slow").fadeIn();
-                $("#two").addClass("mar");
+                //
+
+                $("#one").css(
+                    "display" , "block"
+                );
+
+                $("#two").css(
+                    "display" , "block"
+                );
+
+
 
             })
 
@@ -282,10 +318,12 @@
     <div ng-controller="emp" style="display: inline;">
 
 
-        <img id="logo" src="images/logo.svg" class="animated fadeIn" height="10.5%" width="5%" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
+
+        <img id="logo" src="logo.svg" class="animated fadeIn" height="100px" width="100px" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
 
 
-        <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 2%">Weather.IO</p>
+        <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 2%"><b>Weather.IO</b></p>
+
 
         <div id="box" style="text-align: center;margin-top: 10%;">
             <div id="namer" style="text-align: center;">
@@ -294,17 +332,19 @@
 
                         <form id="form" action='/res' style="text-align: center;">
                     <span id="namer-input" class="hide" style="text-align: center;">
-                        <input type="text" name="location" placeholder="Search here" style="margin-left:-18%">
+                        <input type="text" name="location" placeholder="Search here" style="z-index: 2;margin-left:-18%">
                     </span>
 
-                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="images/search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
+
+                            <button class="hide" id="this" type="submit" style="margin-left:-15%; z-index: 3;"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="z-index: 1; padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="back.svg"></span></button>
 
                         </form>
 
-                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px"> </button>
+                        <button id="one" type="button"  style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
+
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
@@ -329,3 +369,4 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
 </html>
+
