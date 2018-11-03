@@ -155,8 +155,8 @@
         }
 
         #status.fadeIn {
-            /*animation-duration: 2s;*/ 
-            animation-delay: 0.5s; 
+            /*animation-duration: 2s;*/
+            animation-delay: 0.5s;
         }
 
     </style>
