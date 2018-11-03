@@ -9,9 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="images/animate.min.css">
-
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -26,9 +23,11 @@
             -webkit-tap-highlight-color: transparent;
             height : 100%;
         }
+
         body {
             /*background-attachment: fixed;*/
             margin : 0px;
+
             height : 100%;
             background: #000428;  /* fallback for old browsers */
             background: -webkit-linear-gradient(to right,#004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
@@ -37,6 +36,8 @@
             font-family: 'Roboto', sans-serif;
             color: #fff;
         }
+
+
         #Header {
             margin-top: 50px;
             text-align: center;
@@ -47,6 +48,7 @@
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
 
         }
+
         #box {
             width:50%;
             height:50%;
@@ -54,6 +56,7 @@
             border-radius: 99px;
             text-align: center;
         }
+
         button {
             padding-top:0;
             background: #004e92;
@@ -65,6 +68,7 @@
             width: 100%;
             height:100%;
         }
+
         #address {
             font-family: 'ABeeZee', sans-serif;
             font-size: 30px;
@@ -77,11 +81,9 @@
             cursor: pointer;
         }
 
-
         #deg {
             font-size: 30px;
         }
-
 
         #status {
             font-size : 25px;
@@ -92,21 +94,26 @@
         /*h1 {*/
         /*margin-top : 0;*/
         /*}*/
+
         #error {
             font-size: 25px;
 
+        }
 
         #predict {
             font-size: 20px;
             margin: 40px 0  20px 0;
         }
+
         #humidity {
             margin: 40px 200px 20px 0;
             font-size : 25px;
             float: right;
             text-align: center;
             display: inline-block;
+
         }
+
         #pressure {
             margin: 40px 0  20px 200px;
             float:left;
@@ -132,7 +139,8 @@
             /*margin: 10px;*/
         }
 
-        .predict_content {
+
+        #predict_content {
             font-size: 20px;
             margin: 40px 0  20px 0;
         }
@@ -154,10 +162,6 @@
             /*margin: 10px;*/
         }
 
-        #status.fadeIn {
-            /*animation-duration: 2s;*/
-            animation-delay: 0.5s;
-        }
 
     </style>
     <script>
@@ -168,12 +172,14 @@
 
 
     <script type="text/javascript">
+
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
             $scope.iconi='{{icon}}';
             $scope.tempF = '{{tempF}}';
             $scope.tempC = '{{tempC}}';
             $scope.predict = "{{predict}}";
+
             $scope.count = 1;
             $scope.bool = 'true';
             $scope.display = function () {
@@ -188,8 +194,8 @@
             $scope.error = '{{error}}';
             $scope.wind = '{{wind}}';
             $scope.humidity = '{{humidity}}';
-            $scope.summary = '{{summary}}';
             $scope.url = '{{url}}';
+
         }]);
     </script>
 </head>
@@ -199,8 +205,7 @@
 <body>
 <form action="/">
     <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
-    <button style=" background: transparent !important" type="submit"><div id="Header" class="animated fadeIn"><h1><b>Weather.IO</b></h1></div></button>
-
+    <button style=" background: transparent !important" type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
 </form>
 
 <div ng-app="app">
@@ -208,50 +213,47 @@
 
         <div id="box" style="width: 90%; margin-top: 4%;">
             <div id="table" >
-                <a style="color: white;  text-decoration: none;" target="_blank" href="https://www.google.com/search?num=100&newwindow=1&safe=active&q={{url}}"><p id="address" class="animated fadeIn">{{street}}{{area5}}{{state}}{{country}}</p></a>
-
-
-                <span ng-if="error==''" class="animated fadeIn" style="margin-bottom: 5%" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
-                <span ng-click="display()" ng-if="bool=='true'" class="animated fadeIn"><p class="temp animated fadeIn">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
-                <span ng-click="display()" ng-if="bool=='false'" class="animated fadeIn"><p class="temp animated fadeIn">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
+                <a style="color: white;  text-decoration: none;" target="_blank" href="https://www.google.com/search?num=100&newwindow=1&safe=active&q={{url}}"><p id="address">{{street}}{{area5}}{{state}}{{country}}</p></a>
+                <span ng-if="error==''" style="margin-bottom: 5%" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
+                <span ng-click="display()" ng-if="bool=='true'"><p class="temp">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
+                <span ng-click="display()" ng-if="bool=='false'"><p class="temp">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
             </div>
 
-            <div id="status" class="animated fadeIn" ng-if="summary.length>0">
-                <p class="animated fadeIn predict_content">Now</p>
-                <img src="clear-day.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='clear-day'">
-                <img src="clear-night.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='clear-night'">
-                <img src="cloudy.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='cloudy'">
-                <img src="fog.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='fog'">
-                <img src="hail.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='hail'">
-                <img src="partly-cloudy-day.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='partly-cloudy-day'">
-                <img src="partly-cloudy-night.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='partly-cloudy-night'">
-                <img src="rain.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi=='rain'">
-                <img src="sleet.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi==='sleet'">
-                <img src="snow.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi==='snow'">
-                <img src="thunderstorm.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi==='thunderstorm'">
-                <img src="tornado.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi==='tornado'">
-                <img src="wind.svg" style="width:150px;height:150px;" class="animated fadeIn" ng-if="iconi==='wind'">
-                <p class="animated fadeIn">{{summary}}</p>
+            <div id="status">
+                <p id="predict_content">Now</p>
+                <img src="clear-day.svg" style="width:150px;height:150px;" ng-if="iconi=='clear-day'">
+                <img src="clear-night.svg" style="width:150px;height:150px;" ng-if="iconi=='clear-night'">
+                <img src="cloudy.svg" style="width:150px;height:150px;" ng-if="iconi=='cloudy'">
+                <img src="fog.svg" style="width:150px;height:150px;" ng-if="iconi=='fog'">
+                <img src="hail.svg" style="width:150px;height:150px;" ng-if="iconi=='hail'">
+                <img src="partly-cloudy-day.svg" style="width:150px;height:150px;" ng-if="iconi=='partly-cloudy-day'">
+                <img src="partly-cloudy-night.svg" style="width:150px;height:150px;" ng-if="iconi=='partly-cloudy-night'">
+                <img src="rain.svg" style="width:150px;height:150px;" ng-if="iconi=='rain'">
+                <img src="sleet.svg" style="width:150px;height:150px;" ng-if="iconi==='sleet'">
+                <img src="snow.svg" style="width:150px;height:150px;" ng-if="iconi==='snow'">
+                <img src="thunderstorm.svg" style="width:150px;height:150px;" ng-if="iconi==='thunderstorm'">
+                <img src="tornado.svg" style="width:150px;height:150px;" ng-if="iconi==='tornado'">
+                <img src="wind.svg" style="width:150px;height:150px;" ng-if="iconi==='wind'">
+                <p >{{summary}}</p>
             </div>
-            <div id="humidity" class="animated fadeInRight" style="margin-right: 10%;" ng-if="humidity!=''">
-                <p  class="animated fadeIn predict_content">Humidity</p>
-                <div class="animated fadeIn"><img src="humidity.svg" style="width:150px;height:150px;"></div>
-                <p class="animated fadeIn">{{humidity}} %</p>
-            </div>
-
-            <div id="pressure" style="margin-left: 10%;" class="animated fadeInLeft" ng-if="wind!=''">
-                <p  class="animated fadeIn predict_content">Wind speed</p>
-                <div class="animated fadeIn"><img src="pressure.svg" style="width:150px;height:150px;" ></div>
-                <p class="animated fadeIn">{{wind}} km/hr</p>
+            <div id="humidity" style="margin-right: 10%;">
+                <p id="predict_content">Humidity</p>
+                <div><img src="humidity.svg" style="width:150px;height:150px;"></div>
+                <p >{{humidity}} %</p>
             </div>
 
-            <div id="predict" class="animated fadeIn" ng-if="predict.length>0">
-                <p class="animated fadeIn">{{predict}}</p>
+            <div id="pressure" style="margin-left: 10%;">
+                <p id="predict_content">Wind speed</p>
+                <div><img src="pressure.svg" style="width:150px;height:150px;" ></div>
+                <p >{{wind}} km/hr</p>
+            </div>
+
+            <div id="predict">
+                <p >{{predict}}</p>
             </div>
 
 
-            <p id="error" class="animated fadeIn">{{error}}</p>
-1
+            <p id="error">{{error}}</p>
         </div>
     </div>
 
@@ -267,3 +269,14 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
