@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -10,7 +11,9 @@
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
     <link rel="stylesheet" href="images/animate.min.css">
+
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
@@ -26,9 +29,11 @@
             -webkit-tap-highlight-color: transparent;
             height : 100%;
         }
+
         body {
             /*background-attachment: fixed;*/
             margin : 0px;
+
             height : 100%;
             background: #000428;  /* fallback for old browsers */
             background: -webkit-linear-gradient(to right,#004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
@@ -37,6 +42,7 @@
             font-family: 'Roboto', sans-serif;
             color: #fff;
         }
+
         #Header {
             margin-top: 50px;
             text-align: center;
@@ -47,6 +53,7 @@
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
 
         }
+
         #box {
             width:50%;
             height:50%;
@@ -54,6 +61,7 @@
             border-radius: 99px;
             text-align: center;
         }
+
         button {
             padding-top:0;
             background: #004e92;
@@ -65,6 +73,7 @@
             width: 100%;
             height:100%;
         }
+
         #address {
             font-family: 'ABeeZee', sans-serif;
             font-size: 30px;
@@ -92,21 +101,28 @@
         /*h1 {*/
         /*margin-top : 0;*/
         /*}*/
+
+
         #error {
             font-size: 25px;
+
+        }
 
 
         #predict {
             font-size: 20px;
             margin: 40px 0  20px 0;
         }
+
         #humidity {
             margin: 40px 200px 20px 0;
             font-size : 25px;
             float: right;
             text-align: center;
             display: inline-block;
+
         }
+
         #pressure {
             margin: 40px 0  20px 200px;
             float:left;
@@ -132,7 +148,9 @@
             /*margin: 10px;*/
         }
 
+
         .predict_content {
+
             font-size: 20px;
             margin: 40px 0  20px 0;
         }
@@ -154,10 +172,12 @@
             /*margin: 10px;*/
         }
 
+
         #status.fadeIn {
             /*animation-duration: 2s;*/
             animation-delay: 0.5s;
         }
+
 
     </style>
     <script>
@@ -168,12 +188,14 @@
 
 
     <script type="text/javascript">
+
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
             $scope.iconi='{{icon}}';
             $scope.tempF = '{{tempF}}';
             $scope.tempC = '{{tempC}}';
             $scope.predict = "{{predict}}";
+
             $scope.count = 1;
             $scope.bool = 'true';
             $scope.display = function () {
@@ -188,8 +210,10 @@
             $scope.error = '{{error}}';
             $scope.wind = '{{wind}}';
             $scope.humidity = '{{humidity}}';
+
             $scope.summary = '{{summary}}';
             $scope.url = '{{url}}';
+
         }]);
     </script>
 </head>
@@ -199,7 +223,9 @@
 <body>
 <form action="/">
     <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
+
     <button style=" background: transparent !important" type="submit"><div id="Header" class="animated fadeIn"><h1><b>Weather.IO</b></h1></div></button>
+
 
 </form>
 
@@ -208,6 +234,7 @@
 
         <div id="box" style="width: 90%; margin-top: 4%;">
             <div id="table" >
+
                 <a style="color: white;  text-decoration: none;" target="_blank" href="https://www.google.com/search?num=100&newwindow=1&safe=active&q={{url}}"><p id="address" class="animated fadeIn">{{street}}{{area5}}{{state}}{{country}}</p></a>
 
 
@@ -251,7 +278,8 @@
 
 
             <p id="error" class="animated fadeIn">{{error}}</p>
-1
+
+
         </div>
     </div>
 
