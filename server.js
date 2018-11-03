@@ -56,7 +56,10 @@ app.get('/res', (req,res) => {
                             tempC : Math.round((weatherResults.temperature - 32)*(5/9)),
                             icon : weatherResults.icon,
                             body : JSON.stringify(results.body, undefined, 2),
-                            summary : weatherResults.summary
+                            summary : weatherResults.summary,
+                            wind : weatherResults.wind,
+                            humidity : weatherResults.humidity,
+                            pressure : weatherResults.pressure
                         });
                     }
                 });

@@ -17,7 +17,10 @@ var getWeather = (lat, lan, callback) => {
                 temperature : body.currently.temperature,
                 icon : body.currently.icon,
                 prediction : body.hourly.summary,
-                summary : body.currently.summary
+                summary : body.currently.summary,
+                wind : body.currently.windSpeed,
+                humidity : body.currently.humidity,
+                pressure : body.currently.pressure
             })
         }
 
