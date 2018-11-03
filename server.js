@@ -57,7 +57,7 @@ app.get('/res', (req,res) => {
                             body : JSON.stringify(results.body, undefined, 2),
                             summary : weatherResults.summary,
                             wind : weatherResults.wind,
-                            humidity : Math.trunc((weatherResults.humidity)*100),
+                            humidity : Math.round((weatherResults.humidity)*100),
                             pressure : weatherResults.pressure,
                             url : encodeURIComponent( results.area5 + results.state )
                         });
@@ -105,7 +105,7 @@ app.get('/locate', (req,res) => {
                                 body : JSON.stringify(results.body, undefined, 2),
                                 summary : weatherResults.summary,
                                 wind : weatherResults.wind,
-                                humidity : Math.trunc((weatherResults.humidity)*100),
+                                humidity : Math.round((weatherResults.humidity)*100),
                                 pressure : weatherResults.pressure,
                                 url : encodeURIComponent( results.area5 + results.state)
                             });
