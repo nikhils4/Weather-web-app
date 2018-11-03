@@ -4,7 +4,6 @@ const geocode = require('./geocode.js');
 const weather = require('./weather.js');
 const reverse = require('./reverse.js');
 
-
 // this is test
 
 const port = process.env.PORT || 3000;
@@ -58,7 +57,7 @@ app.get('/res', (req,res) => {
                             body : JSON.stringify(results.body, undefined, 2),
                             summary : weatherResults.summary,
                             wind : weatherResults.wind,
-                            humidity : (weatherResults.humidity)*100,
+                            humidity : Math.trunc((weatherResults.humidity)*100),
                             pressure : weatherResults.pressure,
                             url : encodeURIComponent( results.area5 + results.state )
                         });
@@ -106,7 +105,7 @@ app.get('/locate', (req,res) => {
                                 body : JSON.stringify(results.body, undefined, 2),
                                 summary : weatherResults.summary,
                                 wind : weatherResults.wind,
-                                humidity : (weatherResults.humidity)*100,
+                                humidity : Math.trunc((weatherResults.humidity)*100),
                                 pressure : weatherResults.pressure,
                                 url : encodeURIComponent( results.area5 + results.state)
                             });
