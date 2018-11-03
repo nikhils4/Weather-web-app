@@ -120,8 +120,8 @@
         }
         #Header {
             font-family: 'Comfortaa', cursive;
-            margin-top: 0px;
-            text-align: center;
+            /*margin-top: 0px;*/
+            /*text-align: center;*/
             font-size: 60px;
             color: rgba(250,250,250,1);
             cursor: pointer;
@@ -129,7 +129,7 @@
             /*text-align: center;*/
             /*float: right;*/
 
-            margin-right: 41%;
+            /*margin-right: 41%;*/
             margin-bottom: 10%;
             text-align: center;
             /*padding-top: 5px;
@@ -186,10 +186,10 @@
             /*height:100%;*/
         }
 
-        #logo {
-            margin-top: 100px;
-            display:none;
-        }
+        /*#logo {*/
+        /*margin-top: 100px;*/
+        /*display:none;*/
+        /*}*/
 
         .mar {
             margin-top: -100px;
@@ -233,6 +233,7 @@
             $("#start").fadeIn("slow");
             $("#last").fadeIn("slow");
             $("#logo").fadeIn("slow");
+            $("#Header").fadeIn("slow");
 
             $("#one").click(function(){
 
@@ -279,10 +280,11 @@
 <body>
 <div ng-app="app">
     <div ng-controller="emp" style="display: inline;">
-        <span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:6%;height: 6%;display: inline;"></span>
-        <div id="Header" style="display:inline;">
-            <div style="display:inline;display:none;width: 80%;text-align: center;" id="start"><b>Weather.IO</b></div>
-        </div>
+        <img id="logo" src="images/logo.svg" height="100px" width="100px" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
+
+
+        <p id="Header" style="padding: 1%; text-align: center; position: relative; margin-top: 2%">Weather.IO</p>
+
         <div id="box" style="text-align: center;margin-top: 10%;">
             <div id="namer" style="text-align: center;">
                 <div id="main" style="text-align: center;">
@@ -293,14 +295,14 @@
                         <input type="text" name="location" placeholder="Search here" style="margin-left:-18%">
                     </span>
 
-                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="back.svg"></span></button>
+                            <button class="hide" id="this" type="submit" style="margin-left:-15%"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button type="button" id="back" style="padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="images/back.svg"></span></button>
 
                         </form>
 
-                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
+                        <button id="one" onclick="change()" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" onclick="getLocation()" style="display:none;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" ></button>
 
                     </div>
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
