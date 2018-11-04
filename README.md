@@ -9,10 +9,10 @@ This web application displays the weather forecast for all location of the world
 
 
 # Features :
-      Enter location name to get weather details.
+      Enter location name or tap button(for current location) to get weather details.
       location name is searched in the API
-      Detailed Daily weather details following :
+      Detailed Current weather details following :
             An icon for weather conditions,
             Air temperature in Celsius degrees and farenheit,
-            Relative humidity percentage,
+            Humidity percentage,
             Wind speed in km/hr,
