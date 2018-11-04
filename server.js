@@ -108,6 +108,7 @@ app.get('/locate', (req,res) => {
                                 humidity : Math.round((weatherResults.humidity)*100),
                                 pressure : weatherResults.pressure,
                                 url : encodeURIComponent( results.area5 + results.state)
+
                             });
                         }
                     });

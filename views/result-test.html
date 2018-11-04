@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="images/animate.min.css">
+    <link rel="stylesheet" href="animate.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -17,7 +17,15 @@
             box-sizing: border-box;
         }
         html {
+            min-height : 100%;
+            -webkit-background-size : cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
             margin: 0;
+
+
+
             -webkit-tap-highlight-color: rgba(0,0,0,0);
             -webkit-tap-highlight-color: transparent;
             height : 100%;
@@ -26,22 +34,54 @@
             /*background-attachment: fixed;*/
             margin : 0px;
             height : 100%;
-            background: #000428;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right,#004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right,#004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /*background-color: #232840;*/
+            /*background: #000428;  !* fallback for old browsers *!*/
+            /*background: -webkit-linear-gradient(to right,#004e92, #000428);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right,#004e92, #000428); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            /*background: #F0F2F0;  !* fallback for old browsers *!*/
+            /*background: -webkit-linear-gradient( #000C40, #F0F2F0);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient( #000C40, #F0F2F0); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            /*background: #9CECFB;  !* fallback for old browsers *!*/
+            /*background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            /*background: #4CA1AF;  !* fallback for old browsers *!*/
+            /*background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #C4E0E5, #4CA1AF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
         }
         #Header {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 30px;
-            color: rgba(250,250,250,1);
             font-family: 'Comfortaa', cursive;
+            /*margin-top: 0px;*/
+            /*text-align: center;*/
+            font-size: 60px;
+            color: rgba(250,250,250,1);
             cursor: pointer;
+            /*padding-top: 5px;*/
+            /*text-align: center;*/
+            /*float: right;*/
+
+            /*margin-right: 41%;*/
+            margin-bottom: 10%;
+            text-align: center;
+            /*padding-top: 5px;
+            /*padding-bottom: 5px;*/
             /*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*/
+            /*background-color: red;*/
         }
+        /*#Header {*/
+        /*margin-top: 50px;*/
+        /*text-align: center;*/
+        /*font-size: 30px;*/
+        /*color: rgba(250,250,250,1);*/
+        /*font-family: 'Comfortaa', cursive;*/
+        /*cursor: pointer;*/
+        /*!*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*!*/
+        /*}*/
         #box {
             width:50%;
             height:50%;
@@ -110,7 +150,7 @@
         }
         #pressure, #humidity, #status {
             z-index: 1;
-            background: #107DAC;  /* fallback for old browsers */
+            background: #131521;  /* fallback for old browsers */
             /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
             /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
             /*position: relative;*/
@@ -129,6 +169,7 @@
         }
         #predict {
             z-index: 1;
+            /*border-radius: 45% ;*/
             background: #107DAC;  /* fallback for old browsers */
             /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
             /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
@@ -136,6 +177,7 @@
             display: inline-block;
             border-radius: 20px;
             width: 65%;
+            padding: 23px;
             height: 50%;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             /*padding: 20px 38px 100px 38px;*/
@@ -144,12 +186,13 @@
         }
 
         #status.fadeIn {
-            /*animation-duration: 2s;*/ 
-            animation-delay: 0.5s; 
+            /*animation-duration: 2s;*/
+            animation-delay: 0.5s;
         }
 
         #fore {
             float: left;
+            margin-right: 0;
         }
 
 
@@ -192,7 +235,7 @@
 <body>
 <form action="/">
     <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
-    <button style=" background: transparent !important" type="submit"><div id="Header" class="animated fadeIn"><h1><b>Weather.IO</b></h1></div></button>
+    <button style=" background: transparent !important" type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
 </form>
 
 <div ng-app="app">
@@ -236,11 +279,12 @@
 
 
             <div id="predict" class="animated fadeIn" ng-if="predict.length>0" style="height: 200px">
-                <!-- <p class="animated fadeIn" style="font-size: 150%;"><span id="fore"><img src="images/logo.svg" width=50% height=50%>FORECAST<br>{{predict}}</span></p> -->
-<img id="logo" src="images/logo.svg" class="animated fadeIn" height="160px" width="160px" style=" float:left;margin:0 0 0 1%;">
+                <!--<p class="animated fadeIn" style="font-size: 150%;"><span id="fore"><img src="weather.svg" width=50% height=50%>FORECAST<br>{{predict}}</span></p>-->
 
 
-        <p id="fore" class="animated fadeIn" style="padding: 1%; margin: 0% 0% 2% 1%"><span style="font-size: 40px;">FORECAST</span><br><span style="font-size: 20px">{{predict}}</span></p>
+
+                <img id="logo"  src="weather.svg" class="animated fadeIn" height="160px" width="160px" style=" float:left;margin:0 1% 0 1%;display: inline-block">
+                <p id="fore" class="animated fadeIn" style="padding: 1%; margin: 0% 0% 2% 1%"><span style="padding-bottom:5px; font-size: 40px; display: inline-block">Forecast</span><br><span style="font-size: 20px">{{predict}}</span></p>
 
             </div>
 
