@@ -141,10 +141,6 @@
         #error {
             font-size: 25px;
         }
-        #predict {
-            font-size: 20px;
-            margin: 40px 0  20px 0;
-        }
 
         .font {
             font-size: 20%;
@@ -184,6 +180,9 @@
             margin: 40px 0  20px 0;
         }
         #predict {
+            font-size: 20px;
+            margin: 40px 0  20px 0;
+        
             z-index: 1;
             /*border-radius: 45% ;*/
             background: #107DAC;  /* fallback for old browsers */
@@ -305,18 +304,11 @@
                 <div class="animated fadeIn"><img src="pressure.svg" style="width:150px;height:150px;" ></div>
                 <p class="animated fadeIn" style="font-size: 100%;">{{wind}} km/hr</p>
             </div>
-
-
-            <div id="predict" class="animated fadeIn" ng-if="predict.length>0" style="height: 200px">
-
-                <!-- <p class="animated fadeIn" style="font-size: 150%;"><span id="fore"><img src="logo.svg" width=50% height=50%>FORECAST<br>{{predict}}</span></p> -->
-                <img id="logo" src="weather.svg" class="animated fadeIn" height="160px" width="160px" style=" float:left;margin:0 0 0 1%;">
-
-
-                <p id="fore" class="animated fadeIn" style="padding: 7%; margin: 0% 0% 2% 1%"><span style="font-size: 40px;">FORECAST</span><br><span style="font-size: 20px">{{predict}}</span></p>
-
-
-            </div>
+    
+    <div id="predict" style="/*margin:10% 13% 10% 13%;*/height: 200px;" class="animated fadeInLeft" ng-if="predict.length>0">
+                <div class="animated fadeIn"><img src="weather.svg" style="width:160px;float:left;height:160px;" ></div>
+                <p class="animated fadeIn" style="font-size: 100%;float: left;">FORECAST</span><br><span style="font-size: 150%;float: left;">{{predict}}</span></p>
+    </div>
 
 
             <p id="error" class="animated fadeIn">{{error}}</p>
