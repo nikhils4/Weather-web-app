@@ -6,36 +6,50 @@
     <meta charset="UTF-8">
     <title>WeatherIO</title>
     <link rel="shortcut icon" type="ico" href="favicon.ico"/>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="animate.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa|Andika');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
         * {
             box-sizing: border-box;
         }
 
 
-        html {
 
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            -webkit-tap-highlight-color: transparent;
+
+          html {
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-tap-highlight-color: transparent;
             min-height: 100%;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            background: -webkit-linear-gradient(to bottom,#004e92, #000428);
-            background: linear-gradient(to bottom,#004e92, #000428);
+            background: -webkit-linear-gradient(to top,#004e92, #000428);
+            background: linear-gradient(to top,#004e92, #000428);
             background-repeat:no-repeat;
-            background: -webkit-linear-gradient( to bottom #004e92, #000428);
-            background: -moz-linear-gradient( to bottom #004e92, #000428);
-            background: -ms-linear-gradient( to bottom #004e92, #000428);
-            background: -o-linear-gradient( to bottom #004e92, #000428);
-            background: linear-gradient( to bottom #004e92, #000428);
+            background: -webkit-linear-gradient( to top,#004e92, #000428);
+            background: -moz-linear-gradient( to top,#004e92, #000428);
+            background: -ms-linear-gradient( to top,#004e92, #000428);
+            background: -o-linear-gradient( to top,#004e92, #000428);
+            background: linear-gradient( to top,#004e92, #000428);
         }
+
+
+
+
+        /*sdfghjkl;*/
+
+
+
+
+
+
+
 
         body {
             /*background-attachment: fixed;*/
@@ -108,7 +122,7 @@
         }
         button {
             padding-top:0;
-            background: #004e92;
+            background:#00417F; /*#004e92;*/
             outline: none;
             border: 0px;
             color: #fff;
@@ -159,7 +173,7 @@
         }
         #pressure, #humidity, #status {
             z-index: 1;
-            background: #131521;  /* fallback for old browsers */
+            background:  #00417F;  /* fallback for old browsers */
             /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
             /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
             /*position: relative;*/
@@ -176,26 +190,6 @@
             font-size: 20px;
             margin: 20px 0  30px 0;
         }
-        #predict {
-            font-size: 20px;
-            margin: 40px 0  20px 0;
-        
-            z-index: 1;
-            /*border-radius: 45% ;*/
-            background: #107DAC;  /* fallback for old browsers */
-            /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
-            /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-            /*position: relative;*/
-            display: inline-block;
-            border-radius: 20px;
-            width: 65%;
-            padding: 23px;
-            height: 50%;
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-            /*padding: 20px 38px 100px 38px;*/
-            /*margin: 10% auto ;*/
-            /*margin: 10px;*/
-        }
 
         #status.fadeIn {
             /*animation-duration: 2s;*/
@@ -204,11 +198,12 @@
 
 
         #predict_fore {
+
             font-size: 20px;
             margin: 80px 0  20px 0;
-        
+
             /*border-radius: 45% ;*/
-            background: #107DAC;  /* fallback for old browsers */
+            background:   #00417F; /* #402534 #3A2230;  /* fallback for old browsers */
             /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
             /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
             /*position: relative;*/
@@ -216,7 +211,7 @@
             border-radius: 20px;
             width: 65%;
             padding: 23px;
-            height: 200px;
+            height: 215px;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             /*padding: 20px 38px 100px 38px;*/
             /*margin: 10% auto ;*/
@@ -269,7 +264,7 @@
 <form action="/">
     <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
 
-    <img id="logo" src="logo.svg" class="animated fadeIn" height="70px" width="70px" style="float: left !important; position: absolute;margin: 1% 0 0 2%;">
+    <img id="logo" src="weather.svg" class="animated fadeIn" height="70px" width="70px" style="float: left !important; position: absolute;margin: 3% 0 0 3%;">
 
 
 
@@ -290,7 +285,7 @@
             </div>
 
             <div id="status" class="animated fadeIn" style="width: 29%;" ng-if="summary.length>0">
-                <p id="predict_content" class="animated fadeIn" style="font-size: 100%;">Now</p>
+                <p id="predict_content" class="animated fadeIn" style="font-size: 120%;font-family: 'Andika', sans-serif"><b>Now</b></p>
                 <img src="clear-day.svg" style="width:120px;height:120px;" class="animated fadeIn" ng-if="iconi=='clear-day'">
                 <img src="clear-night.svg" style="width:120px;height:120px;" class="animated fadeIn" ng-if="iconi=='clear-night'">
                 <img src="cloudy.svg" style="width:120px;height:120px;" class="animated fadeIn" ng-if="iconi=='cloudy'">
@@ -304,34 +299,34 @@
                 <img src="thunderstorm.svg" style="width:120px;height:120px;" class="animated fadeIn" ng-if="iconi==='thunderstorm'">
                 <img src="tornado.svg" style="width:120px;height:120px;" class="animated fadeIn" ng-if="iconi==='tornado'">
                 <img src="wind.svg" style="width:120px;height:120px;" class="animated fadeIn" ng-if="iconi==='wind'">
-                <p class="animated fadeIn" style="font-size: 80%;">{{summary}}</p>
+                <p class="animated fadeIn" style="font-size: 85%;">{{summary}}</p>
             </div>
             <div id="humidity" class="animated fadeInRight" style="margin-right: 10%;" ng-if="humidity!=''">
-                <p id="predict_content" class="animated fadeIn" style="font-size: 100%;">Humidity</p>
+                <p id="predict_content" class="animated fadeIn" style="font-size: 120%;font-family: 'Andika', sans-serif"><b>Humidity</b></p>
                 <div class="animated fadeIn"><img src="humidity.svg" style="width:120px;height:120px;"></div>
-                <p class="animated fadeIn" style="font-size: 80%;">{{humidity}}%</p>
+                <p class="animated fadeIn" style="font-size: 85%;">{{humidity}}%</p>
             </div>
-            <div id="pressure" style="margin-left: 10%;" class="animated fadeInLeft" ng-if="wind!=''">
-                <p id="predict_content" class="animated fadeIn" style="font-size: 100%;">Wind speed</p>
+            <div id="pressure"   style="margin-left: 10%;" class="animated fadeInLeft" ng-if="wind!=''">
+                <p id="predict_content" class="animated fadeIn" style="font-size: 120%; font-family: 'Andika', sans-serif"><b>Wind speed</b></p>
                 <div class="animated fadeIn"><img src="pressure.svg" style="width:120px;height:120px;" ></div>
-                <p class="animated fadeIn" style="font-size: 80%;">{{wind}} km/hr</p>
+                <p class="animated fadeIn" style="font-size: 85%;">{{wind}} km/hr</p>
             </div>
     
            <div id="predict_fore" style="margin : 0 auto; text-align:left; " class="animated fadeInLeft" ng-if="predict.length>0">
-                <img src="weather.svg" class="animated fadeIn" style="width:150px;float:left;height:150px; margin-top: 4px; margin-right: 45px; " >
-               <p class="animated fadeIn" style="font-size: 30px;padding-left:30px; margin-top: 0px; "><b>Forecast</b></p>
-                    <p style="font-size: 20px; margin-top: 10px;">{{predict}}</p>
+                <img src="weather1.svg" class="animated fadeIn" style="width:150px;float:left;height:150px; margin-top: 6px; margin-right: 45px; padding-top: 6px;" >
+               <p class="animated fadeIn" style="font-size: 35px;padding-left:30px; margin-top: 0px; font-family: 'Andika', sans-serif "><b>Forecast</b></p>
+                    <p style="font-size: 22px; margin-top: 10px;">{{predict}}</p>
            </div>
             <p id="error" class="animated fadeIn">{{error}}</p>
         </div>
     </div>
 </div>
-<div style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 15%; margin-bottom: 30px; color: white; text-decoration: none;">
+<div style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif;margin-top: 15%; margin-bottom: 30px; color: white; text-decoration: none;">
     <h3>&lt;&gt; with &#10084;</h3>
-    <p style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
-    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
-    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
-    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
+    <p style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
+    <a style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
+    <a style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
+    <a style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
 </body>
 </html>

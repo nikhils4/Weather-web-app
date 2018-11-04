@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="animate.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
+        @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa|Gudea|Amaranth');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
         * {
             box-sizing: border-box;
@@ -21,23 +21,36 @@
             transition: background-color 5000s ease-in-out 0s;
             -webkit-text-fill-color: #fff;
         }
-        html {
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            -webkit-tap-highlight-color: transparent;
+
+
+
+
+
+         html {
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-tap-highlight-color: transparent;
             min-height: 100%;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            background: -webkit-linear-gradient(to bottom,#004e92, #000428);
-            background: linear-gradient(to bottom,#004e92, #000428);
+            background: -webkit-linear-gradient(to top,#004e92, #000428);
+            background: linear-gradient(to top,#004e92, #000428);
             background-repeat:no-repeat;
-            background: -webkit-linear-gradient( to bottom #004e92, #000428);
-            background: -moz-linear-gradient( to bottom #004e92, #000428);
-            background: -ms-linear-gradient( to bottom #004e92, #000428);
-            background: -o-linear-gradient( to bottom #004e92, #000428);
-            background: linear-gradient( to bottom #004e92, #000428);
+            background: -webkit-linear-gradient( to top,#004e92, #000428);
+            background: -moz-linear-gradient( to top,#004e92, #000428);
+            background: -ms-linear-gradient( to top,#004e92, #000428);
+            background: -o-linear-gradient( to top,#004e92, #000428);
+            background: linear-gradient( to top,#004e92, #000428);
         }
+
+
+
+
+        /*sdfghjkl;*/
+
+
+
 
 
 
@@ -46,10 +59,11 @@
         }
 
         body {
+            position: relative;
             background-attachment: fixed;
             margin: 0;
 
-            position: relative;
+
             font-family: 'Roboto', sans-serif;
             color: #fff;
         }
@@ -106,7 +120,7 @@
         }
         button {
             box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
-            background: #004e92;
+            background:#00417F; /*#004e92;*/
             padding: 15px 40px;
             width:170px;
             display: inline-block;
@@ -163,6 +177,7 @@
         /*visibility: hidden;*/
         /*}*/
         #form {
+
             margin-right: 400px;
             text-align: center;
             width : 600px;
@@ -201,10 +216,11 @@
         /*}*/
 
         #predict_fore {
+
             font-size: 20px;
             /*margin: 800px 0  20px 0;*/
             /*border-radius: 45% ;*/
-            background: #107DAC;  /* fallback for old browsers */
+            background: #00417F; /* fallback for old browsers */
             /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
             /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
             /*position: relative;*/
@@ -217,6 +233,11 @@
             /*padding: 20px 38px 100px 38px;*/
             /*margin: 10% auto ;*/
             /*margin: 10px;*/
+        }
+
+        #predict_fore.fadeIn {
+            /*animation-duration: 2s;*/
+            animation-delay: 0.5s;
         }
 
     </style>
@@ -324,14 +345,14 @@
 
 
 
-        <img id="logo" src="logo.svg" class="animated fadeIn" height="70px" width="70px" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
+        <img id="logo" src="weather.svg" class="animated fadeIn" height="70px" width="70px" style=" float: left !important; position: absolute;margin: 0 0 0 3%; ">
 
 
 
         <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 3%"><b>Weather.IO</b></p>
 
 
-        <div id="box" style="text-align: center;margin-top: 10%;">
+        <div id="box" style="text-align: center;margin-top: 10%">
             <div id="namer" style="text-align: center;">
                 <div id="main" style="text-align: center;">
                     <div class="namer-controls" style="text-align: center;" >
@@ -358,25 +379,25 @@
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
                 </div>
             </div>
-            <div id="predict_fore" style="margin : 200px auto; text-align:center; " class="animated fadeInLeft" >
+            <div id="predict_fore" style="margin : 350px auto; text-align:center; " class="animated fadeIn" >
                 <!--<img src="logo.svg" class="animated fadeIn" style="width:150px;float:left;height:150px; margin-top: 4px; margin-right: 45px; " >-->
-                <p class="animated fadeIn" style="font-size: 35px;margin-top: 0px; "><b>About</b></p>
-                <p style="font-size: 25px; margin-top: 10px; text-align: justify; line-height: 1.2;">This weather web app gives you details about weather conditions at your current location or at any place around the world. By just clicking the geolocation button at the top you can get the weather details about your current location.
-
-                    To know more about the place searched click on the name of the place and to change the unit of temperature just tap it once.<br style="line-height: 2;">Happy usage 😊</p>
+                <p class="animated fadeIn" style="font-size: 42px;margin-top: 0px;font-family: 'Amaranth', sans-serif; "><b>About</b></p>
+                <p style="font-size: 27.5px; margin-top: 10px; text-align: justify; line-height: 1.2; font-family: 'Gudea', sans-serif;">This weather web app gives you details about weather conditions at your current location or at any place around the world. By just clicking the geolocation button at the top you can get the weather details about your current location.
+                    To know more about the place searched click on the name of the place.</p>
+                    <p style="padding-top: 5px; text-align: justify; font-family: 'Gudea', sans-serif; font-size: 27.5px;">Happy usage 😊</p>
             </div>
         </div>
     </div>
 </div>
 
 
-<div id="last" style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 15%;margin-bottom: 30px;  color: white; text-decoration: none;display: none;">
+<div id="last" style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif;margin-top: 10%;margin-bottom: 30px;  color: white; text-decoration: none;display: none;">
 
     <h3>&lt;&gt; with &#10084;</h3>
-    <p style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
-    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
-    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
-    <a style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
+    <p style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
+    <a style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/nikhils4">nikhils4</a>
+    <a style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/pm-sharma">pm-sharma</a>
+    <a style="text-align: center; font-size: 23px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;" href="https://github.com/satin-04">satin-04</a>
 </div>
 <form action='/locate' style="display:none;">
     <input type="text" name='name_lat' id="input_lat">
