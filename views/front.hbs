@@ -22,6 +22,19 @@
             -webkit-text-fill-color: #fff;
         }
         html {
+            min-height: 100%;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background: -webkit-linear-gradient(to bottom,#004e92, #000428);
+            background: linear-gradient(to bottom,#004e92, #000428); 
+            background-repeat:no-repeat;
+            background: -webkit-linear-gradient( to bottom #004e92, #000428);
+            background: -moz-linear-gradient( to bottom #004e92, #000428);
+            background: -ms-linear-gradient( to bottom #004e92, #000428);
+            background: -o-linear-gradient( to bottom #004e92, #000428);
+            background: linear-gradient( to bottom #004e92, #000428);
             margin : 0px;
             height : 100%;
             -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -150,7 +163,7 @@
             margin-top: 15%;
         }
         /*.hide {*/
-            /*visibility: hidden;*/
+        /*visibility: hidden;*/
         /*}*/
         #form {
             margin-right: 400px;
@@ -341,9 +354,12 @@
 
                         </form>
 
+
+
                         <button id="one" type="button"  style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
 
                         <button id="two" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
+
 
 
                     </div>
@@ -369,4 +385,3 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 </body>
 </html>
-
