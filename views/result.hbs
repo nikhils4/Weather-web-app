@@ -16,34 +16,32 @@
         * {
             box-sizing: border-box;
         }
-        html {
 
+
+        html {
             min-height: 100%;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
             background: -webkit-linear-gradient(to bottom,#004e92, #000428);
-            background: linear-gradient(to bottom,#004e92, #000428); 
+            background: linear-gradient(to bottom,#004e92, #000428);
             background-repeat:no-repeat;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
+            height : 100%;
             background: -webkit-linear-gradient( to bottom #004e92, #000428);
             background: -moz-linear-gradient( to bottom #004e92, #000428);
             background: -ms-linear-gradient( to bottom #004e92, #000428);
             background: -o-linear-gradient( to bottom #004e92, #000428);
             background: linear-gradient( to bottom #004e92, #000428);
-
-            margin: 0;
-
-
-
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            -webkit-tap-highlight-color: transparent;
-            height : 100%;
         }
+
         body {
             /*background-attachment: fixed;*/
             margin : 0px;
             height : 100%;
+
             /*background-color: #232840;*/
             /*background: #000428;  !* fallback for old browsers *!*/
             /*background: -webkit-linear-gradient(to right,#004e92, #000428);  !* Chrome 10-25, Safari 5.1-6 *!*/
@@ -59,12 +57,20 @@
             /*background: linear-gradient(to right, #C4E0E5, #4CA1AF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
             background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 
-
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
         }
         #Header {
+
+            margin-top: 50px;
+            text-align: center;
+            font-size: 60px;
+            color: rgba(250,250,250,1);
+
+
+
+
             font-family: 'Comfortaa', cursive;
             /*margin-top: 0px;*/
             /*text-align: center;*/
@@ -84,13 +90,13 @@
             /*background-color: red;*/
         }
         /*#Header {*/
-            /*margin-top: 50px;*/
-            /*text-align: center;*/
-            /*font-size: 30px;*/
-            /*color: rgba(250,250,250,1);*/
-            /*font-family: 'Comfortaa', cursive;*/
-            /*cursor: pointer;*/
-            /*!*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*!*/
+        /*margin-top: 50px;*/
+        /*text-align: center;*/
+        /*font-size: 30px;*/
+        /*color: rgba(250,250,250,1);*/
+        /*font-family: 'Comfortaa', cursive;*/
+        /*cursor: pointer;*/
+        /*!*background: #00c4cc linear-gradient(139deg, #00c4cc 0, #7d2ae8 100%);*!*/
         /*}*/
         #box {
             width:50%;
@@ -243,9 +249,19 @@
 
 
 <body>
+
+
+
+
+
 <form action="/">
     <!--<span id="logo"><img src="logo.svg" style="margin-top: 23px;margin-left: 50px;width:80px;height: 80px"></span>-->
-    <button style=" background: transparent !important" type="submit"><div id="Header"><h1><b>Weather.IO</b></h1></div></button>
+
+    <img id="logo" src="logo.svg" class="animated fadeIn" height="70px" width="70px" style="float: left !important; position: absolute;margin: 1% 0 0 2%;">
+
+
+    <button style=" background: transparent !important" type="submit"><p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 1%"><b>Weather.IO</b></p></button>
+
 </form>
 
 <div ng-app="app">
@@ -289,12 +305,13 @@
 
 
             <div id="predict" class="animated fadeIn" ng-if="predict.length>0" style="height: 200px">
-                 <!--<p class="animated fadeIn" style="font-size: 150%;"><span id="fore"><img src="weather.svg" width=50% height=50%>FORECAST<br>{{predict}}</span></p>-->
+
+                <!-- <p class="animated fadeIn" style="font-size: 150%;"><span id="fore"><img src="logo.svg" width=50% height=50%>FORECAST<br>{{predict}}</span></p> -->
+                <img id="logo" src="weather.svg" class="animated fadeIn" height="160px" width="160px" style=" float:left;margin:0 0 0 1%;">
 
 
+                <p id="fore" class="animated fadeIn" style="padding: 7%; margin: 0% 0% 2% 1%"><span style="font-size: 40px;">FORECAST</span><br><span style="font-size: 20px">{{predict}}</span></p>
 
-                <img id="logo"  src="weather.svg" class="animated fadeIn" height="160px" width="160px" style=" float:left;margin:0 1% 0 1%;display: inline-block">
-                <p id="fore" class="animated fadeIn" style="padding: 1%; margin: 0% 0% 2% 1%"><span style="padding-bottom:5px; font-size: 40px; display: inline-block">Forecast</span><br><span style="font-size: 20px">{{predict}}</span></p>
 
             </div>
 
