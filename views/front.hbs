@@ -200,8 +200,23 @@
         /*display:none;*/
         /*}*/
 
-        .mar {
-            margin-top: -100px;
+        #predict_fore {
+            font-size: 20px;
+            /*margin: 800px 0  20px 0;*/
+            /*border-radius: 45% ;*/
+            background: #107DAC;  /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            /*position: relative;*/
+            display: inline-block;
+            border-radius: 20px;
+            width: 700px;
+            padding: 23px;
+            height: 400px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            /*padding: 20px 38px 100px 38px;*/
+            /*margin: 10% auto ;*/
+            /*margin: 10px;*/
         }
 
     </style>
@@ -276,19 +291,6 @@
             });
 
             $("#back").click(function(){
-                // $("#back").fadeOut('slow');
-                // $("#this").fadeOut('slow');
-                // $("#namer-input").fadeOut('slow');
-
-                // $("#back").css(
-                //     "display" , "none"
-                // );
-                // $("#this").fadeOut('slow').animate({
-                //     opacity : 0
-                // }, 'slow', 'linear');
-                // $("#namer-input").fadeOut('slow').animate({
-                //     opacity : 0
-                // }, 'slow', 'linear');
 
                 $("#namer-input").css(
                         "display" , "none"
@@ -300,13 +302,6 @@
                         "display" , "none"
                 );
 
-                // $("#start").animate({
-                //         opacity:0,
-                //         marginLeft: '33.20vw',
-                //         marginRight: '36.40vw'
-                //     },'slow','linear'
-                // );
-                //
 
                 $("#one").css(
                         "display" , "block"
@@ -333,7 +328,7 @@
 
 
 
-        <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 1%"><b>Weather.IO</b></p>
+        <p id="Header" class="animated fadeIn" style="padding: 2%; text-align: center; position: relative; margin-top: 1%"><b>Weather.IO</b></p>
 
 
         <div id="box" style="text-align: center;margin-top: 10%;">
@@ -343,10 +338,10 @@
 
                         <form id="form" action='/res' style="text-align: center;">
                     <span id="namer-input" class="hide" style="text-align: center;">
-            <input type="text" class="animated flipInX" name="location" placeholder="Search here" style="z-index:0;margin-left:-70%;position: absolute;width:300px;margin-top: 10%">
+            <input type="text" class="animated flipInX" name="location" placeholder="Search here" style="margin-left:-70%;position: absolute;width:300px;margin-top: 10%">
                     </span>
-                            <button class="hide animated flipInX" id="this" type="submit" style="margin-left:-45%;z-index:3;margin-right: 10%;margin-top: 10%"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" class="animated flipInX" id="back" style="z-index: 1; padding: 0px; display:none;margin-left:-10%;margin-top: 10%"><span > <img width="48px" height="48px" src="back.svg"></span></button>
+                            <button class="hide animated flipInX" id="this" type="submit" style="margin-left:-45%;margin-right: 10%;margin-top: 10%"> <img src="search.svg" width="26px" height="26px"></button>
+                            <button type="button" class="animated flipInX" id="back" style=" padding: 0px; display:none;margin-left:-10%;margin-top: 10%"><span > <img width="48px" height="48px" src="back.svg"></span></button>
 
                         </form>
 
@@ -354,7 +349,8 @@
 
                         <button id="one" class="animated fadeInLeft" type="button" style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" class="animated fadeInRight" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" class="animated fadeInRight" type="button" onclick="getLocation()" style="display:none;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
+
 
 
 
@@ -362,10 +358,19 @@
                     <!--     <p style="font-family: 'ABeeZee', sans-serif; font-size: 22px; text-align: center; margin-top: 190px;">Tap GO to get the weather of current location or search for any place around the world</p> -->
                 </div>
             </div>
+            <div id="predict_fore" style="margin : 200px auto; text-align:center; " class="animated fadeInLeft" >
+                <!--<img src="logo.svg" class="animated fadeIn" style="width:150px;float:left;height:150px; margin-top: 4px; margin-right: 45px; " >-->
+                <p class="animated fadeIn" style="font-size: 30px;margin-top: 0px; "><b>About</b></p>
+                <p style="font-size: 20px; margin-top: 10px; text-align: left;">This weather web app gives you details about weather conditions at your current location or at any place around the world. By just clicking the geolocation button at the top you can get the weather details about your current location.
+
+                    To know more about the place searched click on the name of the place and to change the unit of temperature just tap it once.<br>Happy usage 😊</p>
+            </div>
         </div>
     </div>
 </div>
-<div id="last" style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 45vh; color: white; text-decoration: none;display: none;">
+
+
+<div id="last" style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif;margin-top: 20%; color: white; text-decoration: none;display: none;">
 
     <h3>&lt;&gt; with &#10084;</h3>
     <p style="text-align: center; font-size: 15px; font-family: 'ABeeZee', sans-serif; color: white; text-decoration: none;"> by </p>
