@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" href="images/animate.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto|Krub|ABeeZee|Comfortaa');
         @import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
@@ -22,11 +22,23 @@
             -webkit-text-fill-color: #fff;
         }
         html {
-            margin : 0px;
-            height : 100%;
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            -webkit-tap-highlight-color: transparent;
-        }
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: -webkit-linear-gradient(to bottom,#004e92, #000428);
+    background: linear-gradient(to bottom,#004e92, #000428); 
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient( to bottom #004e92, #000428);
+    background: -moz-linear-gradient( to bottom #004e92, #000428);
+    background: -ms-linear-gradient( to bottom #004e92, #000428);
+    background: -o-linear-gradient( to bottom #004e92, #000428);
+    background: linear-gradient( to bottom #004e92, #000428);
+}
+
+    
+
 
         h1 {
             display: inline;
@@ -37,8 +49,8 @@
             margin: 0;
             height: 100%;
             background: #000428;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: -webkit-linear-gradient(to bottom, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
@@ -319,33 +331,31 @@
 
 
 
-        <img id="logo" src="logo.svg" class="animated fadeIn" height="100px" width="100px" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
+        <img id="logo" src="images/logo.svg" class="animated fadeIn" height="70px" width="70px" style=" float: left !important; position: absolute;margin: 0% 0 0 2%; ">
 
 
-        <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 2%"><b>Weather.IO</b></p>
+        <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 1%"><b>Weather.IO</b></p>
 
 
         <div id="box" style="text-align: center;margin-top: 10%;">
             <div id="namer" style="text-align: center;">
                 <div id="main" style="text-align: center;">
-                    <div class="namer-controls" style="text-align: center;">
+                    <div class="namer-controls" style="text-align: center;" >
 
                         <form id="form" action='/res' style="text-align: center;">
                     <span id="namer-input" class="hide" style="text-align: center;">
-                        <input type="text" name="location" placeholder="Search here" style="z-index: 2;margin-left:-18%">
+            <input type="text" class="animated flipInX" name="location" placeholder="Search here" style="z-index:0;margin-left:-70%;position: absolute;width:300px;margin-top: 10%">
                     </span>
-
-
-                            <button class="hide" id="this" type="submit" style="margin-left:-15%; z-index: 3;"> <img src="search.svg" width="26px" height="26px"></button>
-                            <button type="button" id="back" style="z-index: 1; padding: 0px; display:none;margin-left:-10%"><span> <img width="48px" height="48px" src="back.svg"></span></button>
+                            <button class="hide animated flipInX" id="this" type="submit" style="margin-left:-45%;z-index:3;margin-right: 10%;margin-top: 10%"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button type="button" class="animated flipInX" id="back" style="z-index: 1; padding: 0px; display:none;margin-left:-10%;margin-top: 10%"><span > <img width="48px" height="48px" src="images/back.svg"></span></button>
 
                         </form>
 
 
 
-                        <button id="one" type="button"  style="display:none;text-align: center;"> <img src="search.svg" width="32px" height="32px"> </button>
+                        <button id="one" class="animated fadeInLeft" type="button" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px"> </button>
 
-                        <button id="two" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" class="animated fadeInRight" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" ></button>
 
 
 
