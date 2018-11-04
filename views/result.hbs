@@ -82,7 +82,7 @@
             /*float: right;*/
 
             /*margin-right: 41%;*/
-            margin-bottom: 10%;
+            margin-bottom: 5%;
             text-align: center;
             /*padding-top: 5px;
             /*padding-bottom: 5px;*/
@@ -102,7 +102,8 @@
             width:50%;
             height:50%;
             margin:0 auto;
-            border-radius: 99px;
+            padding-top: 0;
+            border-radius: 100px;
             text-align: center;
         }
         button {
@@ -127,7 +128,7 @@
             cursor: pointer;
         }
         #deg {
-            font-size: 30px;
+            font-size: 40px;
         }
         #status {
             font-size : 25px;
@@ -270,11 +271,11 @@
 
         <div id="box" style="width: 90%; margin-top: 4%;">
             <div id="table" >
-                <a href="https://www.google.com/search?q={{url}}" target="blank" style="text-decoration: none; color : white;"> <p id="address" class="animated fadeIn">{{street}}{{area5}}{{state}}{{country}}</p></a>
-
-                <span ng-if="error==''" class="animated fadeIn" style="margin-bottom: 5%" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
-                <span ng-click="display()" ng-if="bool=='true'" class="animated fadeIn"><p class="temp animated fadeIn">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
-                <span ng-click="display()" ng-if="bool=='false'" class="animated fadeIn"><p class="temp animated fadeIn">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
+                <a href="https://www.google.com/search?q={{url}}" target="blank" style="text-decoration: none; color : white;"> <p id="address" style="padding-bottom: 2px;" class="animated fadeIn">{{street}}{{area5}}</p></a>
+                <a href="https://www.google.com/search?q={{url}}" target="blank" style="text-decoration: none; color : white;"> <p id="address"  class="animated fadeIn">{{state}}{{country}}</p></a>
+                <span ng-if="error==''" class="animated fadeIn" style="margin-bottom: 7%" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
+                <span ng-click="display()" ng-if="bool=='true'"  ><p class="animated fadeIn">{{tempC}}<span><sup ng-if='tempC!=""' id="deg" >&#8451;</sup></span></p></span>
+                <span ng-click="display()" ng-if="bool=='false'"  ><p class="animated fadeIn">{{tempF}}<span><sup ng-if='tempF!=""' id="deg" >&#8457;</sup></span></p></span>
             </div>
 
             <div id="status" class="animated fadeIn" ng-if="summary.length>0">
