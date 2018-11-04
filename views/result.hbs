@@ -206,12 +206,6 @@
             animation-delay: 0.5s;
         }
 
-        #fore {
-            float: left;
-            margin-right: 0;
-        }
-
-
     </style>
     <script>
         $(document).ready(function(){
@@ -306,7 +300,7 @@
                 <p class="animated fadeIn" style="font-size: 80%;">{{wind}} km/hr</p>
             </div>
     
-           <div id="predict" style="/*margin:10% 13% 10% 13%;*/height: 200px;" class="animated fadeInLeft" ng-if="predict.length>0">
+           <div id="predict" style="height: 200px;" class="animated fadeInLeft" ng-if="predict.length>0">
                 <div class="animated fadeIn"><img src="weather.svg" style="width:150px;float:left;height:150px;" ></div>
                 <p class="animated fadeIn" style="font-size: 15px;float:left;padding-left:30px; ">Forcast</span><br><span style="font-size: 15px;float: left;">{{predict}}</span></p>
            </div>
