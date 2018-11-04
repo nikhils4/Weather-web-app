@@ -21,8 +21,9 @@
             transition: background-color 5000s ease-in-out 0s;
             -webkit-text-fill-color: #fff;
         }
-        html {
-
+    html {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
     min-height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -46,10 +47,7 @@
         body {
             background-attachment: fixed;
             margin: 0;
-            height: 100%;
-            background: #000428;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
             position: relative;
             font-family: 'Roboto', sans-serif;
             color: #fff;
@@ -205,6 +203,22 @@
             margin-top: -100px;
         }
 
+        #one, #two {
+            z-index: 1;
+            background: #131521;  /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            /*position: relative;*/
+            display: inline-block;
+            border-radius: 20px;
+            width: 48%;
+            height: 150px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            /*padding: 20px 38px 100px 38px;*/
+            margin: 10% auto ;
+            /*margin: 10px;*/
+        }
+
     </style>
 
 
@@ -256,6 +270,7 @@
 
             $("#one").click(function(e){
                 e.preventDefault();
+
                 $("#one").css(
                     "display" , "none"
                 );
@@ -328,11 +343,7 @@
 <div ng-app="app">
     <div ng-controller="emp" style="display: inline;">
 
-
-
-        <img id="logo" src="logo.svg" class="animated fadeIn" height="10.5%" width="5%" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
-
-
+        <img id="logo" src="images/logo.svg" class="animated fadeIn" height="10.5%" width="5%" style=" float: left !important; position: absolute;margin: 0 0 0 2%; ">
 
         <p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 1%"><b>Weather.IO</b></p>
 
@@ -346,16 +357,14 @@
                     <span id="namer-input" class="hide" style="text-align: center;">
             <input type="text" class="animated flipInX" name="location" placeholder="Search here" style="z-index:0;margin-left:-70%;position: absolute;width:300px;margin-top: 10%">
                     </span>
-                            <button class="hide animated flipInX" id="this" type="submit" style="margin-left:-45%;z-index:3;margin-right: 10%;margin-top: 10%"> <img src="images/search.svg" width="26px" height="26px"></button>
+                            <button class="hide animated flipInX" id="this" type="submit" style="margin-left:-45%;z-index:3;margin-right: 10%;margin-top: 9%"> <img src="images/search.svg" width="26px" height="26px"></button>
                             <button type="button" class="animated flipInX" id="back" style="z-index: 1; padding: 0px; display:none;margin-left:-10%;margin-top: 10%"><span > <img width="48px" height="48px" src="images/back.svg"></span></button>
 
                         </form>
 
+                        <button id="one" class="animated fadeInLeft" type="button" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px" style="margin-top: 5px; margin-bottom: 10px;"><br> Search</button>
 
-
-                        <button id="one" class="animated fadeInLeft" type="button" style="display:none;text-align: center;"> <img src="images/search.svg" width="32px" height="32px"> </button>
-
-                        <button id="two" class="animated fadeInRight" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" ></button>
+                        <button id="two" class="animated fadeInRight" type="button" onclick="getLocation()" style="display:none;z-index:4;text-align: center;"><img src="images/location1.svg" width="32px" height="32px" style="margin-top: 5px; margin-bottom: 10px;" ><br>Tap to get weather of current location</button>
 
 
 
