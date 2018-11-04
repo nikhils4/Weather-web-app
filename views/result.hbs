@@ -206,6 +206,26 @@
             animation-delay: 0.5s;
         }
 
+
+        #predict_fore {
+            font-size: 20px;
+            margin: 40px 0  20px 0;
+            /*border-radius: 45% ;*/
+            background: #107DAC;  /* fallback for old browsers */
+            /*background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  !* Chrome 10-25, Safari 5.1-6 *!*/
+            /*background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+            /*position: relative;*/
+            display: block;
+            border-radius: 20px;
+            width: 65%;
+            padding: 23px;
+            height: 200px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            /*padding: 20px 38px 100px 38px;*/
+            /*margin: 10% auto ;*/
+            /*margin: 10px;*/
+        }
+
     </style>
     <script>
         $(document).ready(function(){
@@ -300,10 +320,15 @@
                 <p class="animated fadeIn" style="font-size: 80%;">{{wind}} km/hr</p>
             </div>
     
-           <div id="predict" style="height: 200px;" class="animated fadeInLeft" ng-if="predict.length>0">
-                <div class="animated fadeIn"><img src="weather.svg" style="width:150px;float:left;height:150px;" ></div>
-                <p class="animated fadeIn" style="font-size: 15px;float:left;padding-left:30px; ">Forcast</span><br><span style="font-size: 15px;float: left;">{{predict}}</span></p>
+           <div id="predict_fore" style="margin : 0 auto; text-align:left; " class="animated fadeInLeft" ng-if="predict.length>0">
+                <img src="weather.svg" class="animated fadeIn" style="width:150px;float:left;height:150px; margin-top: 4px; margin-right: 45px; " >
+               <p class="animated fadeIn" style="font-size: 30px;padding-left:30px; margin-top: 0px; "><b>Forecast</b></p>
+                    <p style="font-size: 20px; margin-top: 10px;">{{predict}}</p>
            </div>
+
+
+
+
 
 
             
