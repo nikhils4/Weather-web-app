@@ -59,7 +59,7 @@ app.get('/res', (req,res) => {
                             wind : weatherResults.wind,
                             humidity : Math.round((weatherResults.humidity)*100),
                             pressure : weatherResults.pressure,
-                            url : encodeURIComponent( results.area5 + results.state )
+                            url : encodeURIComponent( results.area5 + " " + results.state )
                         });
                     }
                 });
@@ -107,7 +107,7 @@ app.get('/locate', (req,res) => {
                                 wind : weatherResults.wind,
                                 humidity : Math.round((weatherResults.humidity)*100),
                                 pressure : weatherResults.pressure,
-                                url : encodeURIComponent( results.area5 + results.state)
+                                url : encodeURIComponent( results.area5 + " "+ results.state)
 
                             });
                         }

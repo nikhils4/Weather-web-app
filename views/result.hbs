@@ -242,6 +242,7 @@
             $scope.wind = '{{wind}}';
             $scope.humidity = '{{humidity}}';
             $scope.summary = '{{summary}}';
+            $scope.url = '{{url}}';
         }]);
     </script>
 </head>
@@ -260,6 +261,7 @@
     <img id="logo" src="logo.svg" class="animated fadeIn" height="70px" width="70px" style="float: left !important; position: absolute;margin: 1% 0 0 2%;">
 
 
+
     <button style=" background: transparent !important" type="submit"><p id="Header" class="animated fadeIn" style="padding: 1%; text-align: center; position: relative; margin-top: 1%"><b>Weather.IO</b></p></button>
 
 </form>
@@ -269,7 +271,8 @@
 
         <div id="box" style="width: 90%; margin-top: 4%;">
             <div id="table" >
-                <p id="address" class="animated fadeIn">{{street}}{{area5}}{{state}}{{country}}</p>
+                <a href="https://www.google.com/search?q={{url}}" target="blank" style="text-decoration: none; color : white;"> <p id="address" class="animated fadeIn">{{street}}{{area5}}{{state}}{{country}}</p></a>
+
                 <span ng-if="error==''" class="animated fadeIn" style="margin-bottom: 5%" id="flag"><img src="https://www.countryflags.io/{{country}}/shiny/48.png" onerror="this.style.display='none'"/></span>
                 <span ng-click="display()" ng-if="bool=='true'" class="animated fadeIn"><p class="temp animated fadeIn">{{tempC}}<span><sup ng-if='tempC!=""' id="deg">&#8451;</sup></span></p></span>
                 <span ng-click="display()" ng-if="bool=='false'" class="animated fadeIn"><p class="temp animated fadeIn">{{tempF}}<span><sup ng-if='tempF!=""' id="deg">&#8457;</sup></span></p></span>
