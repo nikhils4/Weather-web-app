@@ -229,7 +229,7 @@
     <script type="text/javascript">
         var app=angular.module("app",[]);
         app.controller("emp",['$scope',function($scope){
-            $scope.iconi='clear-day';
+            $scope.iconi='{{icon}}';
             $scope.tempF = '{{tempF}}';
             $scope.tempC = '{{tempC}}';
             $scope.predict = "{{predict}}";
