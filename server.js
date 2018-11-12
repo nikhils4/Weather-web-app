@@ -66,7 +66,7 @@ app.get('/res', (req,res) => {
                         var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
                         MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                             if (erro){
-                                return console.log('Unable to connect');
+                                return console.log('Unable to connect', erro);
                             };
 
                             console.log('Connected sucessfully');
@@ -141,7 +141,7 @@ app.get('/locate', (req,res) => {
                             var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
                             MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                                 if (erro){
-                                    return console.log('Unable to connect');
+                                    return console.log('Unable to connect', erro);
                                 };
 
                                 console.log('Connected sucessfully');
