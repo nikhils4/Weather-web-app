@@ -1,4 +1,4 @@
-code --> github --> heroku --> nlab 
+code --> github --> heroku --> mlab 
 
 start localhost:
 node server.js in root directory
