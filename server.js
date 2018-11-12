@@ -76,7 +76,7 @@ app.get('/res', (req,res) => {
                                 'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
                                 'Wind' : weatherResults.wind,
                                 'Humidity' : Math.round((weatherResults.humidity)*100),
-                                'Date and Time' : new Date()
+                                'Date&Time' : new Date()
                             }, (erro, result) => {
                                 if (erro) {
                                     return console.log('Unable to add the weather data', erro);
@@ -151,7 +151,7 @@ app.get('/locate', (req,res) => {
                                     'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
                                     'Wind' : weatherResults.wind,
                                     'Humidity' : Math.round((weatherResults.humidity)*100),
-                                    'Date and Time' : new Date()
+                                    'Date&Time' : new Date()
                                 }, (erro, result) => {
                                     if (erro) {
                                         return console.log('Unable to add the weather data', erro);
