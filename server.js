@@ -63,14 +63,14 @@ app.get('/res', (req,res) => {
                             humidity : Math.round((weatherResults.humidity)*100),
                             url : encodeURIComponent( results.area5 + " " + results.state + " " + results.country )
                         });
-                        var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
+                        var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/weather-search';
                         MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                             if (erro){
                                 return console.log('Unable to connect', erro);
                             };
 
                             console.log('Connected sucessfully');
-                            const db = client.db('Weather-Search');
+                            const db = client.db('weather-search');
                             db.collection('Weather-Data').insertOne({
                                 'Location' :  results.area5 + " "+ results.state + " " + results.country,
                                 'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
@@ -138,14 +138,14 @@ app.get('/locate', (req,res) => {
                                 url : encodeURIComponent( results.area5 + " "+ results.state + " " + results.country)
 
                             });
-                            var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
+                            var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/weather-search';
                             MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                                 if (erro){
                                     return console.log('Unable to connect', erro);
                                 };
 
                                 console.log('Connected sucessfully');
-                                const db = client.db('Weather-Search');
+                                const db = client.db('weather-search');
                                 db.collection('Weather-Data').insertOne({
                                     'Location' :  results.area5 + " "+ results.state + " " + results.country,
                                     'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
