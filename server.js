@@ -74,9 +74,11 @@ app.get('/res', (req,res) => {
                             db.collection('Weather-Data').insertOne({
                                 'Location' :  results.area5 + " "+ results.state + " " + results.country,
                                 'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
-                                'Wind' : weatherResults.wind,
-                                'Humidity' : Math.round((weatherResults.humidity)*100),
-                                'Date&Time' : new Date()
+                                'Wind (km/hr)' : weatherResults.wind,
+                                'Humidity (%)' : Math.round((weatherResults.humidity)*100),
+                                'TimeZone' : new Date().getTimezoneOffset(),
+                                'Date' : new Date(),
+                                'Live' : 'False'
                             }, (erro, result) => {
                                 if (erro) {
                                     return console.log('Unable to add the weather data', erro);
@@ -149,9 +151,11 @@ app.get('/locate', (req,res) => {
                                 db.collection('Weather-Data').insertOne({
                                     'Location' :  results.area5 + " "+ results.state + " " + results.country,
                                     'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
-                                    'Wind' : weatherResults.wind,
-                                    'Humidity' : Math.round((weatherResults.humidity)*100),
-                                    'Date&Time' : new Date()
+                                    'Wind (km/hr)' : weatherResults.wind,
+                                    'Humidity (%)' : Math.round((weatherResults.humidity)*100),
+                                    'TimeZone' : new Date().getTimezoneOffset(),
+                                    'Date' : new Date(),
+                                    'Live' : 'True'
                                 }, (erro, result) => {
                                     if (erro) {
                                         return console.log('Unable to add the weather data', erro);
