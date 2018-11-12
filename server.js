@@ -61,7 +61,7 @@ app.get('/res', (req,res) => {
                             summary : weatherResults.summary,
                             wind : weatherResults.wind,
                             humidity : Math.round((weatherResults.humidity)*100),
-                            url : encodeURIComponent( results.street + ' ' + results.area5 + " " + results.state + " " + results.country )
+                            url : encodeURIComponent( results.area5 + " " + results.state + " " + results.country )
                         });
                         var ur =  process.env.MONGODB_URI || 'mongodb://localhost:27017/weather-search'; // for local host replace with it 'mongodb://localhost:27017/weather-search';
                         MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
@@ -72,7 +72,7 @@ app.get('/res', (req,res) => {
                             console.log('Connected sucessfully');
                             const db = client.db('weather-search');
                             db.collection('Weather-Data').insertOne({
-                                'Location' :  results.area5 + " "+ results.state + " " + results.country,
+                                'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
                                 'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
                                 'Wind (km/hr)' : weatherResults.wind,
                                 'Humidity (%)' : Math.round((weatherResults.humidity)*100),
@@ -137,7 +137,7 @@ app.get('/locate', (req,res) => {
                                 summary : weatherResults.summary,
                                 wind : weatherResults.wind,
                                 humidity : Math.round((weatherResults.humidity)*100),
-                                url : encodeURIComponent( results.street + ' ' + results.area5 + " "+ results.state + " " + results.country)
+                                url : encodeURIComponent( results.area5 + " "+ results.state + " " + results.country)
 
                             });
                             var ur = process.env.MONGODB_URI || 'mongodb://localhost:27017/weather-search'; // for local host replace with it 'mongodb://localhost:27017/weather-search';
@@ -149,7 +149,7 @@ app.get('/locate', (req,res) => {
                                 console.log('Connected sucessfully');
                                 const db = client.db('weather-search');
                                 db.collection('Weather-Data').insertOne({
-                                    'Location' :  results.area5 + " "+ results.state + " " + results.country,
+                                    'Location' : results.street + ' ' + results.area5 + " "+ results.state + " " + results.country,
                                     'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
                                     'Wind (km/hr)' : weatherResults.wind,
                                     'Humidity (%)' : Math.round((weatherResults.humidity)*100),
