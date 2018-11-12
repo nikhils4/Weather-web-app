@@ -63,7 +63,7 @@ app.get('/res', (req,res) => {
                             humidity : Math.round((weatherResults.humidity)*100),
                             url : encodeURIComponent( results.area5 + " " + results.state + " " + results.country )
                         });
-                        var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/weather-search';
+                        var ur = 'mongodb://localhost:27017/weather-search' || process.env.MONGODB_URI; // for local host replace with it 'mongodb://localhost:27017/weather-search';
                         MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                             if (erro){
                                 return console.log('Unable to connect', erro);
@@ -138,7 +138,7 @@ app.get('/locate', (req,res) => {
                                 url : encodeURIComponent( results.area5 + " "+ results.state + " " + results.country)
 
                             });
-                            var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/weather-search';
+                            var ur = 'mongodb://localhost:27017/weather-search' || process.env.MONGODB_URI; // for local host replace with it 'mongodb://localhost:27017/weather-search';
                             MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                                 if (erro){
                                     return console.log('Unable to connect', erro);
