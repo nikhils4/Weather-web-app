@@ -11,5 +11,5 @@ start cloud:
 visit website 
 search for data
 to see data :
-	login into nlab
+	login into mlab
 	check the data in json or table view 

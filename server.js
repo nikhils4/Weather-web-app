@@ -5,10 +5,6 @@ const weather = require('./weather.js');
 const reverse = require('./reverse.js');
 const MongoClient = require('mongodb').MongoClient;
 
-
-
-// this is test
-
 const port = process.env.PORT || 3000;
 
 var app = express();
