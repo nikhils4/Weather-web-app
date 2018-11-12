@@ -63,7 +63,7 @@ app.get('/res', (req,res) => {
                             humidity : Math.round((weatherResults.humidity)*100),
                             url : encodeURIComponent( results.area5 + " " + results.state + " " + results.country )
                         });
-                        var ur = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/Weather-Search';
+                        var ur = process.env.MONGODB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
                         MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                             if (erro){
                                 return console.log('Unable to connect');
@@ -137,6 +137,28 @@ app.get('/locate', (req,res) => {
                                 humidity : Math.round((weatherResults.humidity)*100),
                                 url : encodeURIComponent( results.area5 + " "+ results.state + " " + results.country)
 
+                            });
+                            var ur = process.env.MONGODB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
+                            MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
+                                if (erro){
+                                    return console.log('Unable to connect');
+                                };
+
+                                console.log('Connected sucessfully');
+                                const db = client.db('Weather-Search');
+                                db.collection('Weather-Data').insertOne({
+                                    'Location' :  results.area5 + " "+ results.state + " " + results.country,
+                                    'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                    'Wind' : weatherResults.wind,
+                                    'Humidity' : Math.round((weatherResults.humidity)*100),
+                                    'Date and Time' : new Date()
+                                }, (erro, result) => {
+                                    if (erro) {
+                                        return console.log('Unable to add the weather data', erro);
+                                    }
+                                    console.log(JSON.stringify(result.ops, undefined, 2));
+                                })
+                                client.close();
                             });
                         }
                     });
