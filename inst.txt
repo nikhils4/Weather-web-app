@@ -1,0 +1,15 @@
+code --> github --> heroku --> nlab 
+
+start localhost:
+node server.js in root directory
+start mongoDB :
+	go to bin run mongod on cli
+	then run mongo and start searching data will log down properly
+	view the data either in robomongo or on the console 
+
+start cloud:
+visit website 
+search for data
+to see data :
+	login into nlab
+	check the data in json or table view 
