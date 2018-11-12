@@ -3,6 +3,9 @@ const hbs = require('hbs');
 const geocode = require('./geocode.js');
 const weather = require('./weather.js');
 const reverse = require('./reverse.js');
+const MongoClient = require('mongodb').MongoClient;
+
+
 
 // this is test
 
@@ -58,13 +61,39 @@ app.get('/res', (req,res) => {
                             summary : weatherResults.summary,
                             wind : weatherResults.wind,
                             humidity : Math.round((weatherResults.humidity)*100),
-                            pressure : weatherResults.pressure,
                             url : encodeURIComponent( results.area5 + " " + results.state + " " + results.country )
+                        });
+                        var ur = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/Weather-Search';
+                        MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
+                            if (erro){
+                                return console.log('Unable to connect');
+                            };
+
+                            console.log('Connected sucessfully');
+                            const db = client.db('Weather-Search');
+                            db.collection('Weather-Data').insertOne({
+                                'Location' :  results.area5 + " "+ results.state + " " + results.country,
+                                'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                'Wind' : weatherResults.wind,
+                                'Humidity' : Math.round((weatherResults.humidity)*100),
+                                'Date and Time' : new Date()
+                            }, (erro, result) => {
+                                if (erro) {
+                                    return console.log('Unable to add the weather data', erro);
+                                }
+                                console.log(JSON.stringify(result.ops, undefined, 2));
+                            })
+                            client.close();
                         });
                     }
                 });
+
+
             }
         });
+
+
+
     }
 
 });
@@ -106,7 +135,6 @@ app.get('/locate', (req,res) => {
                                 summary : weatherResults.summary,
                                 wind : weatherResults.wind,
                                 humidity : Math.round((weatherResults.humidity)*100),
-                                pressure : weatherResults.pressure,
                                 url : encodeURIComponent( results.area5 + " "+ results.state + " " + results.country)
 
                             });
