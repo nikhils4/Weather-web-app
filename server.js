@@ -138,7 +138,7 @@ app.get('/locate', (req,res) => {
                                 url : encodeURIComponent( results.area5 + " "+ results.state + " " + results.country)
 
                             });
-                            var ur = process.env.MONGOLAb_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
+                            var ur = process.env.MONGOLAB_URI; // for local host replace with it 'mongodb://localhost:27017/Weather-Search';
                             MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                                 if (erro){
                                     return console.log('Unable to connect');
