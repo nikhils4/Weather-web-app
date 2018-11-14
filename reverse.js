@@ -14,8 +14,6 @@ var reverse = (lat, lan, callback) => {
                 address : body.results[0].formatted
             });
         }
-
-
     });
 };
 
