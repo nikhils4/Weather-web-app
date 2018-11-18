@@ -72,7 +72,6 @@ app.get('/res', (req,res) => {
                             dns.reverse(req.connection.remoteAddress, function(err, domains) {
                                 if (err){
                                     clientName = 'Client name not found';
-                                    ip = req.connection.remoteAddress;
                                     console.log('Connected sucessfully');
                                     const db = client.db('weather-search');
                                     db.collection('Weather-Data').insertOne({
@@ -83,8 +82,8 @@ app.get('/res', (req,res) => {
                                         'TimeZone' : new Date().getTimezoneOffset(),
                                         'Date' : new Date(),
                                         'Live' : 'False',
-                                        'ClientName' : clientName,
-                                        'IP' : ip
+                                        'ClientName' : 'Not found',
+                                        'IP' : req.connection.remoteAddress
                                     }, (erro, result) => {
                                         if (erro) {
                                             return console.log('Unable to add the weather data', erro);
@@ -94,9 +93,7 @@ app.get('/res', (req,res) => {
                                     client.close();
                                 }
                                 else {
-                                    clientName = domains;
                                     console.log('Connected sucessfully');
-                                    ip = req.connection.remoteAddress;
                                     const db = client.db('weather-search');
                                     db.collection('Weather-Data').insertOne({
                                         'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
@@ -106,8 +103,8 @@ app.get('/res', (req,res) => {
                                         'TimeZone' : new Date().getTimezoneOffset(),
                                         'Date' : new Date(),
                                         'Live' : 'False',
-                                        'ClientName' : clientName,
-                                        'IP' : ip
+                                        'ClientName' : domains,
+                                        'IP' : req.connection.remoteAddress
                                     }, (erro, result) => {
                                         if (erro) {
                                             return console.log('Unable to add the weather data', erro);
