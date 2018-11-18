@@ -82,7 +82,7 @@ app.get('/res', (req,res) => {
                                         'TimeZone' : new Date().getTimezoneOffset(),
                                         'Date' : new Date(),
                                         'Live' : 'False',
-                                        'ClientName' : 'Not found',
+                                        // 'ClientName' : 'Not found',
                                         'IP' : req.connection.remoteAddress
                                     }, (erro, result) => {
                                         if (erro) {
@@ -103,7 +103,7 @@ app.get('/res', (req,res) => {
                                         'TimeZone' : new Date().getTimezoneOffset(),
                                         'Date' : new Date(),
                                         'Live' : 'False',
-                                        'ClientName' : domains,
+                                        // 'ClientName' : domains,
                                         'IP' : req.connection.remoteAddress
                                     }, (erro, result) => {
                                         if (erro) {
