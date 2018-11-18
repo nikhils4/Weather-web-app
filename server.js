@@ -4,6 +4,8 @@ const geocode = require('./geocode.js');
 const weather = require('./weather.js');
 const reverse = require('./reverse.js');
 const MongoClient = require('mongodb').MongoClient;
+const dns = require('dns');
+
 
 const port = process.env.PORT || 3000;
 
@@ -15,6 +17,11 @@ app.set('view engine', hbs);
 app.get('/', (req,res) => {
     res.render('front.hbs');
 });
+
+
+
+
+
 
 app.get('/res', (req,res) => {
     if (/[^a-zA-Z0-9 ,]/i.test(req.query.location)){
@@ -28,13 +35,11 @@ app.get('/res', (req,res) => {
                 res.render('result.hbs', {
                     error : errorMessage
                 })
-
             }
             else if (req.query.location == ' ' ) {
                 res.render('result.hbs', {
                     error : errorMessage
                 })
-
             }
             else {
                 weather.getWeather(results.latitute, results.longitude, (errorMessage, weatherResults) => {
@@ -63,25 +68,57 @@ app.get('/res', (req,res) => {
                         MongoClient.connect(ur,{ useNewUrlParser: true }, (erro,client) => {
                             if (erro){
                                 return console.log('Unable to connect', erro);
-                            };
-
-                            console.log('Connected sucessfully');
-                            const db = client.db('weather-search');
-                            db.collection('Weather-Data').insertOne({
-                                'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
-                                'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
-                                'Wind (km/hr)' : weatherResults.wind,
-                                'Humidity (%)' : Math.round((weatherResults.humidity)*100),
-                                'TimeZone' : new Date().getTimezoneOffset(),
-                                'Date' : new Date(),
-                                'Live' : 'False'
-                            }, (erro, result) => {
-                                if (erro) {
-                                    return console.log('Unable to add the weather data', erro);
+                            }
+                            dns.reverse(req.connection.remoteAddress, function(err, domains) {
+                                if (err){
+                                    clientName = 'Client name not found';
+                                    ip = req.connection.remoteAddress;
+                                    console.log('Connected sucessfully');
+                                    const db = client.db('weather-search');
+                                    db.collection('Weather-Data').insertOne({
+                                        'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
+                                        'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                        'Wind (km/hr)' : weatherResults.wind,
+                                        'Humidity (%)' : Math.round((weatherResults.humidity)*100),
+                                        'TimeZone' : new Date().getTimezoneOffset(),
+                                        'Date' : new Date(),
+                                        'Live' : 'False',
+                                        'ClientName' : clientName,
+                                        'IP' : ip
+                                    }, (erro, result) => {
+                                        if (erro) {
+                                            return console.log('Unable to add the weather data', erro);
+                                        }
+                                        console.log(JSON.stringify(result.ops, undefined, 2));
+                                    });
+                                    client.close();
                                 }
-                                console.log(JSON.stringify(result.ops, undefined, 2));
-                            })
-                            client.close();
+                                else {
+                                    clientName = domains;
+                                    console.log('Connected sucessfully');
+                                    ip = req.connection.remoteAddress;
+                                    const db = client.db('weather-search');
+                                    db.collection('Weather-Data').insertOne({
+                                        'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
+                                        'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                        'Wind (km/hr)' : weatherResults.wind,
+                                        'Humidity (%)' : Math.round((weatherResults.humidity)*100),
+                                        'TimeZone' : new Date().getTimezoneOffset(),
+                                        'Date' : new Date(),
+                                        'Live' : 'False',
+                                        'ClientName' : clientName,
+                                        'IP' : ip
+                                    }, (erro, result) => {
+                                        if (erro) {
+                                            return console.log('Unable to add the weather data', erro);
+                                        }
+                                        console.log(JSON.stringify(result.ops, undefined, 2));
+                                    });
+                                    client.close();
+                                }
+
+                            });
+
                         });
                     }
                 });
@@ -89,11 +126,7 @@ app.get('/res', (req,res) => {
 
             }
         });
-
-
-
     }
-
 });
 
 
