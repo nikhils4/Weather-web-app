@@ -69,52 +69,55 @@ app.get('/res', (req,res) => {
                             if (erro){
                                 return console.log('Unable to connect', erro);
                             }
-                            dns.reverse(req.connection.remoteAddress, function(err, domains) {
-                                if (err){
-                                    clientName = 'Client name not found';
-                                    console.log('Connected sucessfully');
-                                    const db = client.db('weather-search');
-                                    db.collection('Weather-Data').insertOne({
-                                        'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
-                                        'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
-                                        'Wind (km/hr)' : weatherResults.wind,
-                                        'Humidity (%)' : Math.round((weatherResults.humidity)*100),
-                                        'TimeZone' : new Date().getTimezoneOffset(),
-                                        'Date' : new Date(),
-                                        'Live' : 'False',
-                                        // 'ClientName' : 'Not found',
-                                        'IP' : req.connection.remoteAddress
-                                    }, (erro, result) => {
-                                        if (erro) {
-                                            return console.log('Unable to add the weather data', erro);
-                                        }
-                                        console.log(JSON.stringify(result.ops, undefined, 2));
-                                    });
-                                    client.close();
-                                }
-                                else {
-                                    console.log('Connected sucessfully');
-                                    const db = client.db('weather-search');
-                                    db.collection('Weather-Data').insertOne({
-                                        'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
-                                        'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
-                                        'Wind (km/hr)' : weatherResults.wind,
-                                        'Humidity (%)' : Math.round((weatherResults.humidity)*100),
-                                        'TimeZone' : new Date().getTimezoneOffset(),
-                                        'Date' : new Date(),
-                                        'Live' : 'False',
-                                        // 'ClientName' : domains,
-                                        'IP' : req.connection.remoteAddress
-                                    }, (erro, result) => {
-                                        if (erro) {
-                                            return console.log('Unable to add the weather data', erro);
-                                        }
-                                        console.log(JSON.stringify(result.ops, undefined, 2));
-                                    });
-                                    client.close();
-                                }
+                            else {
 
-                            });
+                                dns.reverse(req.connection.remoteAddress, function(err, domains) {
+                                    if (err){
+                                        clientName = 'Client name not found';
+                                        console.log('Connected sucessfully');
+                                        const db = client.db('weather-search');
+                                        db.collection('Weather-Data').insertOne({
+                                            'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
+                                            'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                            'Wind (km/hr)' : weatherResults.wind,
+                                            'Humidity (%)' : Math.round((weatherResults.humidity)*100),
+                                            'TimeZone' : new Date().getTimezoneOffset(),
+                                            'Date' : new Date(),
+                                            'Live' : 'False',
+                                            // 'ClientName' : 'Not found',
+                                            'IP' : req.connection.remoteAddress
+                                        }, (erro, result) => {
+                                            if (erro) {
+                                                return console.log('Unable to add the weather data', erro);
+                                            }
+                                            console.log(JSON.stringify(result.ops, undefined, 2));
+                                        });
+                                        client.close();
+                                    }
+                                    else {
+                                        console.log('Connected sucessfully');
+                                        const db = client.db('weather-search');
+                                        db.collection('Weather-Data').insertOne({
+                                            'Location' : results.street + ' ' +  results.area5 + " "+ results.state + " " + results.country,
+                                            'Temperature (deg C)' : Math.round((weatherResults.temperature - 32)*(5/9)),
+                                            'Wind (km/hr)' : weatherResults.wind,
+                                            'Humidity (%)' : Math.round((weatherResults.humidity)*100),
+                                            'TimeZone' : new Date().getTimezoneOffset(),
+                                            'Date' : new Date(),
+                                            'Live' : 'False',
+                                            // 'ClientName' : domains,
+                                            'IP' : req.connection.remoteAddress
+                                        }, (erro, result) => {
+                                            if (erro) {
+                                                return console.log('Unable to add the weather data', erro);
+                                            }
+                                            console.log(JSON.stringify(result.ops, undefined, 2));
+                                        });
+                                        client.close();
+                                    }
+
+                                });
+                            }
 
                         });
                     }
