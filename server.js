@@ -73,7 +73,7 @@ app.get('/res', (req,res) => {
                                 'Wind (km/hr)' : weatherResults.wind,
                                 'Humidity (%)' : Math.round((weatherResults.humidity)*100),
                                 'TimeZone' : new Date().getTimezoneOffset(),
-                                'Date' : new Date(),
+                                'Date' : new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}),
                                 'Live' : 'False'
                             }, (erro, result) => {
                                 if (erro) {
@@ -150,7 +150,7 @@ app.get('/locate', (req,res) => {
                                     'Wind (km/hr)' : weatherResults.wind,
                                     'Humidity (%)' : Math.round((weatherResults.humidity)*100),
                                     'TimeZone' : new Date().getTimezoneOffset(),
-                                    'Date' : new Date(),
+                                    'Date' : new Date().toLocaleString("en-US", {timeZone: "Asia/Calcutta"}),
                                     'Live' : 'True'
                                 }, (erro, result) => {
                                     if (erro) {
