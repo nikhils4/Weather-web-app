@@ -1,2 +1,3 @@
 module.exports.darksky = 'XXXXXXXXXXXXXXXXXXXXX';
-module.exposrts.geocode = 'XXXXXXXXXXXXXXXXXXXXX';
+module.exports.geocode = 'XXXXXXXXXXXXXXXXXXXXX';
+module.exports.opencage = 'XXXXXXXXXXXXXXXXXXXXX';
