@@ -13,7 +13,6 @@
     "express": "^4.16.4",
     "hbs": "^4.0.1",
     "mongodb": "^3.1.9",
-    "nodemon": "^1.18.4",
     "path": "^0.12.7",
     "request": "^2.88.0",
     "serve-favicon": "^2.5.0"
