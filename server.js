@@ -5,7 +5,7 @@ const weather = require('./weather.js');
 const reverse = require('./reverse.js');
 const MongoClient = require('mongodb').MongoClient;
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 var app = express();
 app.use(express.static(__dirname + '/views/images') );
