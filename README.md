@@ -1,6 +1,8 @@
 # Weather-App
 
-A weather app developed using DarkSky API. **[Live Demo](https://weather-io.herokuapp.com)**
+This is a weather web app deployed on the following website - Check [here](https://weather-io.herokuapp.com)
+
+This web application displays the weather forecast of any place around the world and also gives the weather details at the current location of a user with just a tap of a button.
 
 #### Features -
 
@@ -8,6 +10,7 @@ A weather app developed using DarkSky API. **[Live Demo](https://weather-io.hero
 2. It also enables us to get the current location weather details.
 3. Provides details about the temperature, wind speed and humidity.
 4. Also provides the details for the searched city, once clicked on it. 
+
 
 
 #### Developed by -
