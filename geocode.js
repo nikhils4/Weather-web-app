@@ -1,8 +1,9 @@
 const request = require('request');
+const config = require('./config');
 
 var geocodeAddress = (address, callback) => {
     request({
-        url: 'http://mapquestapi.com/geocoding/v1/address?key=gi58AiucSCUsY9AbnjXJxlr0zvkN3Ux8&location=' + address,
+        url: 'http://mapquestapi.com/geocoding/v1/address?key='+ config.geocode +'&location=' + address,
         json: true
     }, (error, response, body) => {
         if (error != null) // mistake from user end
